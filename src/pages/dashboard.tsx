@@ -56,11 +56,12 @@ const Dashboard: NextPage = () => {
       </Head>
 
       <main>
-        <h1>Hello, world!</h1>
+        <h1>Dashboard</h1>
         <ul>
           {products.map(product => (
             <li key={product.id}>
-              <Link href={`/details/${product.name}`}>{product.name}</Link>
+              {product.id} -
+              <Link href={`/product/${product.id}`}>{product.name}</Link>
             </li>
           ))}
           Total de produtos: {totalProducts}

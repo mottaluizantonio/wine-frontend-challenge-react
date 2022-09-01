@@ -4,6 +4,7 @@ import {
   InferGetServerSidePropsType
 } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 
 import Search from '../assets/search.svg';
 import { Container } from '../styles/pages/Home';
@@ -59,11 +60,12 @@ const Home: NextPage = ({
     </Head>
 
     <main>
-      <h1>Hello, world!</h1>
+      <h1>Home</h1>
       <ul>
         {data.items.map(product => (
           <li key={product.id}>
-            {product.name} - {product.price}
+            {product.id} -
+            <Link href={`/search/${product.name}`}>{product.name}</Link>
           </li>
         ))}
       </ul>

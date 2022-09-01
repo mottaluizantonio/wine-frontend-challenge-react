@@ -29,22 +29,26 @@ const Search: NextPage = () => {
   const [searchProducts, setSearchProducts] = useState<Item[]>([]);
 
   useEffect(() => {
-    fetch(`https://wine-back-test.herokuapp.com/products?name=${search}`).then(
-      res =>
-        res.json().then(data => {
-          setSearchProducts(data.items);
-        })
+    fetch(
+      `https://wine-back-test.herokuapp.com/products?page=1&limit=10&name=${search}`
+    ).then(res =>
+      res.json().then(data => {
+        setSearchProducts(data.items);
+      })
     );
   }, []);
 
   return (
-    <ul>
-      {searchProducts.map(item => (
-        <li key={item.id}>
-          {item.id} - <Link href={`/product/${item.name}`}>{item.name}</Link>
-        </li>
-      ))}
-    </ul>
+    <>
+      <h1>Search</h1>
+      <ul>
+        {searchProducts.map(item => (
+          <li key={item.id}>
+            {item.id} - <Link href={`/product/${item.name}`}>{item.name}</Link>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
 

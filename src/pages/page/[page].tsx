@@ -4,6 +4,7 @@ import {
   InferGetServerSidePropsType
 } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 
 interface Item {
   id: number;
@@ -34,7 +35,7 @@ interface Data {
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const res = await fetch(
-    `https://wine-back-test.herokuapp.com/products?page=${params.page}&limit=10`
+    `https://wine-back-test.herokuapp.com/products?page=${params.page}&limit=10&filter=${params.price}`
   );
   const data: Data = await res.json();
 
@@ -56,10 +57,14 @@ const Page: NextPage = ({
     </Head>
 
     <main>
-      <h1>Hello, world!</h1>
+      <h1>Page {data.page}</h1>
       <ul>
+        {data.totalItems} itens encontrados
         {data.items.map(product => (
-          <li key={product.id}>{product.name}</li>
+          <li key={product.id}>
+            {product.id} -
+            <Link href={`/product/${product.id}`}>{product.name}</Link>
+          </li>
         ))}
       </ul>
     </main>

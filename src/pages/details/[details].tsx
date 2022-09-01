@@ -60,7 +60,7 @@ const Details: NextPage = ({
       <ul>
         {data.items.map(product => (
           <li key={product.id}>
-            {product.name} - {product.price}
+            {product.id} - {product.name}
           </li>
         ))}
       </ul>
