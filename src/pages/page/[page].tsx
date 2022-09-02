@@ -5,6 +5,7 @@ import {
 } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+
 import Header from '../../components/Header';
 
 interface Item {
@@ -34,9 +35,12 @@ interface Data {
   items: Item[];
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  params,
+  query
+}) => {
   const res = await fetch(
-    `https://wine-back-test.herokuapp.com/products?page=${params.page}&limit=10&filter=${params.price}`
+    `https://wine-back-test.herokuapp.com/products?page=${params.page}&limit=10&filter=${query.price}`
   );
   const data: Data = await res.json();
 

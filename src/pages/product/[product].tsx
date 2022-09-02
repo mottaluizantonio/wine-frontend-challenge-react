@@ -4,6 +4,7 @@ import {
   InferGetServerSidePropsType
 } from 'next';
 import Head from 'next/head';
+import Header from '../../components/Header';
 
 interface Item {
   id: number;
@@ -56,6 +57,7 @@ const Product: NextPage = ({
       {/* <link rel="icon" href="/favicon.ico" /> */}
     </Head>
 
+    <Header />
     <main>
       <h1>Product: {findProduct.name}</h1>
     </main>
