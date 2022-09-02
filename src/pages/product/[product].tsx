@@ -113,11 +113,13 @@ const Product: NextPage = ({
                 <p>({findProduct.avaliations})</p>
               </InfoContainer>
             </ProductHeader>
+            <img src={findProduct.image} alt={findProduct.name} />
             <PricesContainer>
               <p>R${findProduct.priceMember}</p>
               <span>NÃO SÓCIO R${findProduct.priceNonMember}/UN.</span>
             </PricesContainer>
             <DescriptionContainer>
+              <h3>Descrição</h3>
               <h3>Comentário do Sommelier</h3>
               <p>{findProduct.sommelierComment}</p>
             </DescriptionContainer>
