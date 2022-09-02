@@ -33,6 +33,21 @@ export const ContainerReturn = styled.div`
   }
 `;
 
+export const DivClickReturn = styled.div`
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-direction: row;
+
+  > svg {
+    margin-right: 20px;
+  }
+
+  :hover {
+    cursor: pointer;
+  }
+`;
+
 export const Content = styled.div`
   width: 100%;
 
