@@ -1,7 +1,7 @@
 import Search from '../assets/search.svg';
 import Account from '../assets/account.svg';
-import Winebox from '../assets/winebox.svg';
-import Winelogo from '../assets/winelogo.svg';
+import Winebox from '../assets/wineBox.svg';
+import Winelogo from '../assets/wineLogo.svg';
 import {
   Container,
   ContainerLeft,

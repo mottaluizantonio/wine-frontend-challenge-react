@@ -8,13 +8,22 @@ import Header from '../../components/Header';
 
 import Return from '../../assets/return.svg';
 import ArrowRegion from '../../assets/arrowRegion.svg';
+import StarEmpty from '../../assets/starEmpty.svg';
+import StarFull from '../../assets/starFull.svg';
+import RoundEmpty from '../../assets/roundEmpty.svg';
+import RoundEmptyFade from '../../assets/roundEmptyFade.svg';
 
 import {
+  ButtonContainer,
   Container,
   ContainerReturn,
   Content,
   ContentLeft,
   ContentRight,
+  DescriptionContainer,
+  InfoContainer,
+  PricesContainer,
+  ProductHeader,
   RegionContainer
 } from '../../styles/pages/Product';
 
@@ -81,14 +90,45 @@ const Product: NextPage = ({
             <img src={findProduct.image} alt={findProduct.name} />
           </ContentLeft>
           <ContentRight>
-            <RegionContainer>
-              <span>Vinhos</span>
-              <ArrowRegion />
-              <span>{findProduct.country}</span>
-              <ArrowRegion />
-              <span>{findProduct.region}</span>
-            </RegionContainer>
-            <h1>{findProduct.name}</h1>
+            <ProductHeader>
+              <RegionContainer>
+                <span>Vinhos</span>
+                <ArrowRegion />
+                <span>{findProduct.country}</span>
+                <ArrowRegion />
+                <span>{findProduct.region}</span>
+              </RegionContainer>
+              <h1>{findProduct.name}</h1>
+              <InfoContainer>
+                <img src={findProduct.flag} alt={findProduct.country} />
+                <p>{findProduct.country}</p>
+                <p>{findProduct.type}</p>
+                <p>{findProduct.classification}</p>
+                <p>{findProduct.size}</p>
+                {findProduct.rating > 0 ? <StarFull /> : <StarEmpty />}
+                {findProduct.rating > 1 ? <StarFull /> : <StarEmpty />}
+                {findProduct.rating > 2 ? <StarFull /> : <StarEmpty />}
+                {findProduct.rating > 3 ? <StarFull /> : <StarEmpty />}
+                {findProduct.rating > 4 ? <StarFull /> : <StarEmpty />}
+                <p>({findProduct.avaliations})</p>
+              </InfoContainer>
+            </ProductHeader>
+            <PricesContainer>
+              <p>R${findProduct.priceMember}</p>
+              <span>NÃO SÓCIO R${findProduct.priceNonMember}/UN.</span>
+            </PricesContainer>
+            <DescriptionContainer>
+              <h3>Comentário do Sommelier</h3>
+              <p>{findProduct.sommelierComment}</p>
+            </DescriptionContainer>
+            <ButtonContainer>
+              <div>
+                <RoundEmptyFade />
+                <p>-</p>1<p>+</p>
+                <RoundEmpty />
+              </div>
+              <div>Adicionar</div>
+            </ButtonContainer>
           </ContentRight>
         </Content>
       </Container>
