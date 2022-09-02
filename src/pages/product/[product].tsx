@@ -6,6 +6,18 @@ import {
 import Head from 'next/head';
 import Header from '../../components/Header';
 
+import Return from '../../assets/return.svg';
+import ArrowRegion from '../../assets/arrowRegion.svg';
+
+import {
+  Container,
+  ContainerReturn,
+  Content,
+  ContentLeft,
+  ContentRight,
+  RegionContainer
+} from '../../styles/pages/Product';
+
 interface Item {
   id: number;
   image: string;
@@ -59,7 +71,27 @@ const Product: NextPage = ({
 
     <Header />
     <main>
-      <h1>Product: {findProduct.name}</h1>
+      <Container>
+        <ContainerReturn>
+          <Return />
+          Voltar
+        </ContainerReturn>
+        <Content>
+          <ContentLeft>
+            <img src={findProduct.image} alt={findProduct.name} />
+          </ContentLeft>
+          <ContentRight>
+            <RegionContainer>
+              <span>Vinhos</span>
+              <ArrowRegion />
+              <span>{findProduct.country}</span>
+              <ArrowRegion />
+              <span>{findProduct.region}</span>
+            </RegionContainer>
+            <h1>{findProduct.name}</h1>
+          </ContentRight>
+        </Content>
+      </Container>
     </main>
   </div>
 );
