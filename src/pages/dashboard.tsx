@@ -7,33 +7,7 @@ import { useRouter } from 'next/router';
 
 import Search from '../assets/search.svg';
 import { Container } from '../styles/pages/Home';
-
-interface Item {
-  id: number;
-  image: string;
-  name: string;
-  price: number;
-  discount: number;
-  priceMember: number;
-  priceNonMember: number;
-  type: string;
-  classification: string;
-  size: string;
-  rating: number;
-  avaliations: number;
-  country: string;
-  region: string;
-  flag: string;
-  sommelierComment: string;
-}
-
-// interface Data {
-//   page: number;
-//   totalPages: number;
-//   itemsPerPage: number;
-//   totalItems: number;
-//   items: Item[];
-// }
+import { Item } from '../interfaces/products';
 
 const Dashboard: NextPage = () => {
   const router = useRouter();

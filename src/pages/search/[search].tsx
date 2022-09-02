@@ -2,25 +2,7 @@ import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-
-interface Item {
-  id: number;
-  image: string;
-  name: string;
-  price: number;
-  discount: number;
-  priceMember: number;
-  priceNonMember: number;
-  type: string;
-  classification: string;
-  size: string;
-  rating: number;
-  avaliations: number;
-  country: string;
-  region: string;
-  flag: string;
-  sommelierComment: string;
-}
+import { Item } from '../../interfaces/products';
 
 const Search: NextPage = () => {
   const router = useRouter();

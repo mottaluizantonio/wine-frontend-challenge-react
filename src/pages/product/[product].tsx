@@ -34,33 +34,7 @@ import {
 } from '../../styles/pages/Product';
 import { Button } from '../../styles/components/Button';
 import formatCurrency from '../../utils/formatCurrency';
-
-interface Item {
-  id: number;
-  image: string;
-  name: string;
-  price: number;
-  discount: number;
-  priceMember: number;
-  priceNonMember: number;
-  type: string;
-  classification: string;
-  size: string;
-  rating: number;
-  avaliations: number;
-  country: string;
-  region: string;
-  flag: string;
-  sommelierComment: string;
-}
-
-interface Data {
-  page: number;
-  totalPages: number;
-  itemsPerPage: number;
-  totalItems: number;
-  items: Item[];
-}
+import { Data, Item } from '../../interfaces/products';
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const res = await fetch(`https://wine-back-test.herokuapp.com/products?`);
