@@ -114,6 +114,7 @@ export const ProductHeader = styled.div`
       font-size: 28px;
       margin-top: 12px;
       margin-bottom: 12px;
+      text-align: start;
     }
   }
 `;
@@ -218,6 +219,7 @@ export const DescriptionContainer = styled.div`
     color: ${props => props.theme.colors.grayLighter};
     font: 400 16px Saira, sans-serif;
     line-height: 24px;
+    margin-bottom: 90px;
   }
 
   @media only screen and (min-width: 768px) {
@@ -237,6 +239,7 @@ export const DescriptionContainer = styled.div`
     > p {
       font-size: 14px;
       line-height: 21px;
+      margin-bottom: 0px;
     }
   }
 `;
@@ -289,4 +292,49 @@ export const ButtonContainer = styled.div`
       border-left: 1px solid rgba(255, 255, 255, 0.1);
     }
   }
+`;
+
+export const FooterMobile = styled.div`
+  height: 80px;
+  width: 100vw;
+  padding: 0 5vw 0 5vw;
+  background: ${props => props.theme.colors.white};
+  box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.0627185);
+
+  position: fixed;
+  bottom: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* > div {
+  } */
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+
+export const PriceOffContainer = styled.div`
+  width: 50px;
+  height: 15px;
+  color: ${props => props.theme.colors.white};
+  background: ${props => props.theme.colors.cheninDefault};
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 400;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: -7px;
+`;
+
+export const PriceDivMobile = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
 `;

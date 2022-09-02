@@ -21,11 +21,15 @@ import {
   ContentLeft,
   ContentRight,
   DescriptionContainer,
+  FooterMobile,
   InfoContainer,
+  PriceDivMobile,
+  PriceOffContainer,
   PricesContainer,
   ProductHeader,
   RegionContainer
 } from '../../styles/pages/Product';
+import { Button } from '../../styles/components/Button';
 
 interface Item {
   id: number;
@@ -133,6 +137,19 @@ const Product: NextPage = ({
             </ButtonContainer>
           </ContentRight>
         </Content>
+        <FooterMobile>
+          <div>
+            <PriceOffContainer>{findProduct.discount}% off</PriceOffContainer>
+            <PriceDivMobile>
+              <div>preco</div>
+              <div>preco</div>
+              <div>preco</div>
+            </PriceDivMobile>
+          </div>
+          <div>
+            <Button>adicionar</Button>
+          </div>
+        </FooterMobile>
       </Container>
     </main>
   </div>

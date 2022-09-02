@@ -10,7 +10,8 @@ const theme = {
     tannatDefault: '#C81A78',
     background: '#F5F5F5',
     text: '#121214',
-    greenButton: '#7EBC43'
+    greenButton: '#7EBC43',
+    cheninDefault: '#F26649'
   }
 };
 
