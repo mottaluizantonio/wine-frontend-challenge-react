@@ -333,8 +333,25 @@ export const PriceOffContainer = styled.div`
 `;
 
 export const PriceDivMobile = styled.div`
+  color: ${props => props.theme.colors.grayDefault};
+  font-weight: 700;
+
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
+
+  div:first-child {
+    font-size: 12px;
+    text-decoration: line-through;
+  }
+
+  div:nth-child(2) {
+    color: ${props => props.theme.colors.tannatDefault};
+    font-size: 26px;
+  }
+
+  div:nth-child(3) {
+    font-size: 10px;
+    text-transform: uppercase;
+  }
 `;

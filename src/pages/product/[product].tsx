@@ -30,6 +30,7 @@ import {
   RegionContainer
 } from '../../styles/pages/Product';
 import { Button } from '../../styles/components/Button';
+import formatCurrency from '../../utils/formatCurrency';
 
 interface Item {
   id: number;
@@ -119,8 +120,10 @@ const Product: NextPage = ({
             </ProductHeader>
             <img src={findProduct.image} alt={findProduct.name} />
             <PricesContainer>
-              <p>R${findProduct.priceMember}</p>
-              <span>NÃO SÓCIO R${findProduct.priceNonMember}/UN.</span>
+              <p>{formatCurrency(findProduct.priceMember)}</p>
+              <span>
+                NÃO SÓCIO {formatCurrency(findProduct.priceNonMember)}/UN.
+              </span>
             </PricesContainer>
             <DescriptionContainer>
               <h3>Descrição</h3>
@@ -141,9 +144,11 @@ const Product: NextPage = ({
           <div>
             <PriceOffContainer>{findProduct.discount}% off</PriceOffContainer>
             <PriceDivMobile>
-              <div>preco</div>
-              <div>preco</div>
-              <div>preco</div>
+              <div>{formatCurrency(findProduct.price)}</div>
+              <div>{formatCurrency(findProduct.priceMember)}</div>
+              <div>
+                preço não-sócio {formatCurrency(findProduct.priceNonMember)}
+              </div>
             </PriceDivMobile>
           </div>
           <div>
