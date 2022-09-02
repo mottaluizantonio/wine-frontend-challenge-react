@@ -3,6 +3,8 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
+import { useRouter } from 'next/router';
+
 import Search from '../assets/search.svg';
 import { Container } from '../styles/pages/Home';
 
@@ -34,16 +36,20 @@ interface Item {
 // }
 
 const Dashboard: NextPage = () => {
+  const router = useRouter();
+  const { page, price } = router.query;
+
   const [products, setProducts] = useState<Item[]>([]);
   const [totalProducts, setTotalProducts] = useState(0);
 
   useEffect(() => {
-    fetch('https://wine-back-test.herokuapp.com/products?page=1&limit=10').then(
-      res =>
-        res.json().then(data => {
-          setProducts(data.items);
-          setTotalProducts(data.totalItems);
-        })
+    fetch(
+      `https://wine-back-test.herokuapp.com/products?page=${page}&limit=10&filter=${price}`
+    ).then(res =>
+      res.json().then(data => {
+        setProducts(data.items);
+        setTotalProducts(data.totalItems);
+      })
     );
   }, []);
 
