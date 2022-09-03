@@ -1,33 +1,34 @@
 import { createContext, useState } from 'react';
 import { Item } from '../../interfaces/products';
 
-// interface AppContextInterface {
-//   cart: Item[];
-//   setCart: string;
-//   removeFromCart: string;
-//   addToCart: string;
-// }
+interface CartContextInterface {
+  cart: Item[] | [];
+  removeFromCart(product: Item): void;
+  addToCart(product: Item): void;
+}
 
-export const CartContext = createContext([]);
+export const CartContext = createContext<CartContextInterface>(
+  {} as CartContextInterface
+);
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState(
-    () => JSON.parse(localStorage.getItem('cart')) || []
+  const [cart, setCart] = useState<Item[]>(
+    () => JSON.parse(localStorage.getItem('cart')) || ([] as Item[])
   );
 
-  const addToCart = (item: Item) => {
-    setCart([...cart, item]);
-    localStorage.setItem('cart-wine-la', JSON.stringify(cart));
+  const addToCart = product => {
+    setCart([...cart, product]);
+    localStorage.setItem('cartwinelam', JSON.stringify(cart));
   };
 
   const removeFromCart = product => {
     const newCartList = cart.filter(item => item !== product);
     setCart(newCartList);
-    localStorage.setItem('cart-wine-la', JSON.stringify(newCartList));
+    localStorage.setItem('cartwinelam', JSON.stringify(newCartList));
   };
 
   return (
-    <CartContext.Provider value={{ cart, setCart, removeFromCart, addToCart }}>
+    <CartContext.Provider value={{ cart, removeFromCart, addToCart }}>
       {children}
     </CartContext.Provider>
   );
