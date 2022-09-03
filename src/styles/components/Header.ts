@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100vw;
   height: 70px;
-  padding: 0 10vw 0 10vw;
+  padding: 0 4vw 0 4vw;
 
   color: ${props => props.theme.colors.grayDefault};
   background: ${props => props.theme.colors.white};
@@ -17,6 +17,7 @@ export const Container = styled.div`
   @media only screen and (min-width: 768px) {
     height: 90px;
     border-bottom: 0.5px solid #cccccc;
+    padding: 0 10vw 0 10vw;
   }
 `;
 
@@ -26,11 +27,26 @@ export const ContainerLeft = styled.div`
   align-items: center;
   flex-direction: row;
 
+  svg:first-child {
+    margin-right: 20px;
+  }
+
   > ul {
     display: none;
   }
 
+  li,
+  svg {
+    :hover {
+      cursor: pointer;
+    }
+  }
+
   @media only screen and (min-width: 768px) {
+    svg:first-child {
+      display: none;
+    }
+
     > ul {
       margin-left: 5vw;
       list-style-type: none;
@@ -50,7 +66,7 @@ export const ContainerLeft = styled.div`
       }
 
       li:nth-child(2) {
-        color: ${props => props.theme.colors.lightTannat};
+        color: ${props => props.theme.colors.tannatLight};
         border-bottom: 2px solid #d14b8f;
       }
     }
@@ -62,8 +78,18 @@ export const ContainerRight = styled.div`
   justify-content: center;
   align-items: center;
 
+  svg {
+    :hover {
+      cursor: pointer;
+    }
+  }
+
   svg:nth-child(-n + 2) {
     display: none;
+  }
+
+  svg:nth-child(3) {
+    margin-right: 20px;
   }
 
   @media only screen and (min-width: 768px) {
@@ -73,6 +99,10 @@ export const ContainerRight = styled.div`
 
     svg:nth-child(-n + 2) {
       display: block;
+    }
+
+    svg:nth-child(3) {
+      display: none;
     }
   }
 `;

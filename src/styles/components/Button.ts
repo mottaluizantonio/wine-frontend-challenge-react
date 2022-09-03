@@ -1,13 +1,7 @@
 import styled from 'styled-components';
+import { ButtonProps } from '../../interfaces/button';
 
-interface ButtonProps {
-  width?: string;
-  height?: string;
-  fontSize?: string;
-  uppercase?: string;
-}
-
-export const Button = styled.button<ButtonProps>`
+const Button = styled.button<ButtonProps>`
   color: ${props => props.theme.colors.white};
   background: ${props => props.theme.colors.greenButton};
   font-weight: 700;
@@ -19,8 +13,11 @@ export const Button = styled.button<ButtonProps>`
   height: ${prop => (prop?.height ? prop.height : '50px')};
   font-size: ${prop => (prop?.fontSize ? prop.fontSize : '16px')};
   text-transform: ${prop => (prop?.uppercase ? 'uppercase' : 'capitalize')};
+  margin-bottom: ${prop => (prop?.marginBottom ? prop.marginBottom : '0px')};
+
+  :hover {
+    cursor: pointer;
+  }
 `;
 
-export const Container = styled.div`
-  display: flex;
-`;
+export default Button;

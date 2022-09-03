@@ -1,10 +1,5 @@
 import { CartProvider } from './cart';
-import { ProductsProvider } from './products';
 
-const Providers = ({ children }) => (
-  <ProductsProvider>
-    <CartProvider>{children}</CartProvider>
-  </ProductsProvider>
-);
+const Providers = ({ children }) => <CartProvider>{children}</CartProvider>;
 
 export default Providers;

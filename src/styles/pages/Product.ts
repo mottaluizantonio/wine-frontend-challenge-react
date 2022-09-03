@@ -323,8 +323,6 @@ export const FooterMobile = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  /* > div {
-  } */
   @media only screen and (min-width: 768px) {
     display: none;
   }
