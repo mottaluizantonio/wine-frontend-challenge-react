@@ -35,6 +35,13 @@ export const ContainerLeft = styled.div`
     display: none;
   }
 
+  li,
+  svg {
+    :hover {
+      cursor: pointer;
+    }
+  }
+
   @media only screen and (min-width: 768px) {
     svg:first-child {
       display: none;
@@ -70,6 +77,12 @@ export const ContainerRight = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  svg {
+    :hover {
+      cursor: pointer;
+    }
+  }
 
   svg:nth-child(-n + 2) {
     display: none;

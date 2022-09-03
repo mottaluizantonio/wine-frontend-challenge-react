@@ -138,7 +138,7 @@ const Page: NextPage = ({
               </Link>
               {data.page + 1 < data.totalPages && <p>...</p>}
               <Link href={`/page/${data.page + 1}`}>
-                <p className="pointer">Próximo &gt;&gt;</p>
+                <p className="pointer last">Próximo &gt;&gt;</p>
               </Link>
             </>
           )}

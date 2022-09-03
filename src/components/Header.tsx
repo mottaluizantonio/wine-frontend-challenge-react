@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import Search from '../assets/search.svg';
 import Search2 from '../assets/search2.svg';
 import Account from '../assets/account.svg';
@@ -14,7 +16,9 @@ const Header = () => (
   <Container>
     <ContainerLeft>
       <HambMenu />
-      <Winelogo />
+      <Link href="/page/1">
+        <Winelogo />
+      </Link>
       <ul>
         <li>Clube</li>
         <li>Loja</li>
