@@ -63,35 +63,55 @@ const Page: NextPage = ({
             <p>Por preço</p>
             <Link href="/page/1?price=0-40">
               <div className="container">
-                <input type="checkbox" checked={query.price === '0-40'} />
+                <input
+                  type="checkbox"
+                  checked={query.price === '0-40'}
+                  readOnly
+                />
                 <span className="checkmark" />
                 <span className="checkbox-text">Até R$40</span>
               </div>
             </Link>
             <Link href="/page/1?price=40-60">
               <div className="container">
-                <input type="checkbox" checked={query.price === '40-60'} />
+                <input
+                  type="checkbox"
+                  checked={query.price === '40-60'}
+                  readOnly
+                />
                 <span className="checkmark" />
                 <span className="checkbox-text">R$40 A R$60</span>
               </div>
             </Link>
             <Link href="/page/1?price=100-200">
               <div className="container">
-                <input type="checkbox" checked={query.price === '100-200'} />
+                <input
+                  type="checkbox"
+                  checked={query.price === '100-200'}
+                  readOnly
+                />
                 <span className="checkmark" />
                 <span className="checkbox-text">R$100 A R$200</span>
               </div>
             </Link>
             <Link href="/page/1?price=200-500">
               <div className="container">
-                <input type="checkbox" checked={query.price === '200-500'} />
+                <input
+                  type="checkbox"
+                  checked={query.price === '200-500'}
+                  readOnly
+                />
                 <span className="checkmark" />
                 <span className="checkbox-text">R$200 A R$500</span>
               </div>
             </Link>
             <Link href="/page/1?price=500-500">
               <div className="container">
-                <input type="checkbox" checked={query.price === '500-500'} />
+                <input
+                  type="checkbox"
+                  checked={query.price === '500-500'}
+                  readOnly
+                />
                 <span className="checkmark" />
                 <span className="checkbox-text">Acima de R$500</span>
               </div>
@@ -104,9 +124,9 @@ const Page: NextPage = ({
             <LineDiv />
             <ProductsGrid>
               {data.items.map(product => (
-                <div>
+                <div key={product.id}>
                   <Link href={`/product/${product.id}`}>
-                    <ProductBox key={product.id}>
+                    <ProductBox>
                       <SealContainer>
                         <BlackWine />
                       </SealContainer>
