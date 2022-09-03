@@ -168,6 +168,7 @@ const Page: NextPage = ({
                       marginBottom="30px"
                       fontSize="14px"
                       uppercase
+                      onClick={() => addToCart(product)}
                     >
                       adicionar
                     </Button>

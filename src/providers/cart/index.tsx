@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { Item } from '../../interfaces/products';
 
 interface CartContextInterface {
@@ -12,9 +12,13 @@ export const CartContext = createContext<CartContextInterface>(
 );
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState<Item[]>(
-    () => JSON.parse(localStorage.getItem('cart')) || ([] as Item[])
-  );
+  const [cart, setCart] = useState<Item[]>([] as Item[]);
+
+  useEffect(() => {
+    const data = localStorage.getItem('cartwinelam');
+
+    if (data) setCart(JSON.parse(data));
+  }, []);
 
   const addToCart = product => {
     setCart([...cart, product]);
