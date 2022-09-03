@@ -66,7 +66,7 @@ export const ContainerLeft = styled.div`
       }
 
       li:nth-child(2) {
-        color: ${props => props.theme.colors.lightTannat};
+        color: ${props => props.theme.colors.tannatLight};
         border-bottom: 2px solid #d14b8f;
       }
     }

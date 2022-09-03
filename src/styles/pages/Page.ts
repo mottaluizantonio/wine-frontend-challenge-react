@@ -14,9 +14,101 @@ export const Container = styled.div`
   }
 `;
 
-export const SearchContainer = styled.div``;
-
 export const Content = styled.div`
+  margin-top: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+`;
+
+export const SearchContainer = styled.div`
+  display: none;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+
+  margin-right: 100px;
+
+  div,
+  input {
+    :hover {
+      cursor: pointer;
+    }
+  }
+
+  h4 {
+    color: ${props => props.theme.colors.black};
+    font: 700 20px Neo Sans Std, sans-serif;
+    margin-bottom: 30px;
+  }
+
+  p {
+    color: ${props => props.theme.colors.blackLight};
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 26px;
+    cursor: pointer;
+    color: ${props => props.theme.colors.grayCard};
+    font-size: 14px;
+    font-weight: 400;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    border: 2px solid #8888;
+    background: ${props => props.theme.colors.background};
+  }
+
+  .container:hover input ~ .checkmark {
+    background: ${props => props.theme.colors.graySilver};
+  }
+
+  .container input:checked ~ .checkmark {
+    background: ${props => props.theme.colors.tannatDefault};
+  }
+
+  .checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+  }
+
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  @media only screen and (min-width: 768px) {
+    display: flex;
+  }
+`;
+
+export const MainContent = styled.div`
   max-width: 832px;
 
   display: flex;
@@ -25,7 +117,7 @@ export const Content = styled.div`
   flex-direction: column;
 
   > p {
-    margin: 30px 0px 20px;
+    margin: 0px 0px 20px;
     font-size: 18px;
     color: ${props => props.theme.colors.grayLight};
     font-weight: 400;
@@ -38,7 +130,7 @@ export const Content = styled.div`
 
   @media only screen and (min-width: 768px) {
     > p {
-      margin: 30px 0px 30px;
+      margin: 0px 0px 30px;
       font-size: 18px;
       color: ${props => props.theme.colors.grayDark};
 
@@ -91,9 +183,13 @@ export const ProductBox = styled.div`
   box-shadow: 0px 9.73384px 14.6008px rgba(0, 0, 0, 0.1);
 
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
+
+  :hover {
+    cursor: pointer;
+  }
 
   img {
     height: 180px;
@@ -184,7 +280,7 @@ export const PricePartner = styled.div`
   }
 
   p:nth-child(2) {
-    color: ${props => props.theme.colors.anotherTannat};
+    color: ${props => props.theme.colors.tannatAnother};
     font-size: 14px;
     font-weight: 700;
   }
@@ -238,11 +334,19 @@ export const SealContainer = styled.div`
 `;
 
 export const NavigationContainer = styled.div`
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const NavigationButtonsContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 
-  color: ${props => props.theme.colors.anotherTannat};
+  color: ${props => props.theme.colors.tannatAnother};
   margin-bottom: 45px;
 
   > div {
@@ -281,7 +385,7 @@ export const NavigationContainer = styled.div`
 
   .current-page {
     color: ${props => props.theme.colors.white};
-    background: ${props => props.theme.colors.anotherTannat};
+    background: ${props => props.theme.colors.tannatAnother};
     width: 75px;
   }
 
@@ -326,7 +430,7 @@ export const NavigationContainer = styled.div`
 
     .current-page {
       color: ${props => props.theme.colors.white};
-      background: ${props => props.theme.colors.anotherTannat};
+      background: ${props => props.theme.colors.tannatAnother};
       width: 75px;
     }
   } */

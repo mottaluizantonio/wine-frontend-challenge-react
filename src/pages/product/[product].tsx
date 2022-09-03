@@ -32,7 +32,7 @@ import {
   ProductHeader,
   RegionContainer
 } from '../../styles/pages/Product';
-import { Button } from '../../styles/components/Button';
+import Button from '../../styles/components/Button';
 import formatCurrency from '../../utils/formatCurrency';
 import { Data, Item } from '../../interfaces/products';
 
