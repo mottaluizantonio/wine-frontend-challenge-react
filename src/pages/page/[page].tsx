@@ -15,6 +15,7 @@ import {
   Container,
   Content,
   LineDiv,
+  NavigationContainer,
   PriceOff,
   PricePartner,
   ProductBox,
@@ -117,6 +118,31 @@ const Page: NextPage = ({
             ))}
           </ProductsGrid>
         </Content>
+        <NavigationContainer>
+          {data.page - 1 > 0 && (
+            <>
+              <Link href={`/page/${data.page - 1}`}>
+                <p className="pointer">&lt;&lt; Anterior</p>
+              </Link>
+              {data.page > 2 && <p>...</p>}
+              <Link href={`/page/${data.page - 1}`}>
+                <div>{data.page - 1}</div>
+              </Link>
+            </>
+          )}
+          <div className="current-page no-pointer">{data.page}</div>
+          {data.page + 1 <= data.totalPages && (
+            <>
+              <Link href={`/page/${data.page + 1}`}>
+                <div>{data.page + 1}</div>
+              </Link>
+              {data.page + 1 < data.totalPages && <p>...</p>}
+              <Link href={`/page/${data.page + 1}`}>
+                <p className="pointer">Próximo &gt;&gt;</p>
+              </Link>
+            </>
+          )}
+        </NavigationContainer>
       </Container>
     </main>
   </div>
