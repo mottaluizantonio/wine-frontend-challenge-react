@@ -6,6 +6,8 @@ import {
 import Head from 'next/head';
 import Link from 'next/link';
 
+import BlackWine from '../../assets/blackWine.svg';
+
 import Header from '../../components/Header';
 import { Data } from '../../interfaces/products';
 import { Button } from '../../styles/components/Button';
@@ -15,7 +17,8 @@ import {
   PriceOff,
   PricePartner,
   ProductBox,
-  ProductsGrid
+  ProductsGrid,
+  SealContainer
 } from '../../styles/pages/Page';
 import formatCurrency from '../../utils/formatCurrency';
 
@@ -57,6 +60,9 @@ const Page: NextPage = ({
               <div>
                 <Link href={`/product/${product.id}`}>
                   <ProductBox key={product.id}>
+                    <SealContainer>
+                      <BlackWine />
+                    </SealContainer>
                     <img src={product.image} alt={product.name} />
                     <h2>{product.name}</h2>
                     <PriceOff>

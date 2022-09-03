@@ -61,6 +61,10 @@ export const ProductBox = styled.div`
     height: 180px;
   }
 
+  > svg {
+    position: relative;
+  }
+
   h2 {
     color: ${props => props.theme.colors.grayCard};
     font-size: 16px;
@@ -75,11 +79,6 @@ export const ProductBox = styled.div`
     text-transform: uppercase;
   }
 `;
-
-// export const Product = styled.div`
-//   display: flex;
-//   align-items: center;
-// `;
 
 export const PriceOff = styled.div`
   display: flex;
@@ -128,5 +127,20 @@ export const PricePartner = styled.div`
     font-size: 23px;
     text-align: center;
     margin-left: 5px;
+  }
+`;
+
+export const SealContainer = styled.div`
+  background: ${props => props.theme.colors.grayDarker};
+  border-radius: 50%;
+  position: relative;
+  bottom: -125px;
+  left: 80px;
+  margin-bottom: -44px;
+
+  > svg {
+    border-radius: 50%;
+    position: relative;
+    bottom: -3px;
   }
 `;
