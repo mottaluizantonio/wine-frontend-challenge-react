@@ -24,3 +24,8 @@ export interface Data {
   totalItems: number;
   items: Item[];
 }
+
+export interface MapProps {
+  product: Item;
+  index: number;
+}
