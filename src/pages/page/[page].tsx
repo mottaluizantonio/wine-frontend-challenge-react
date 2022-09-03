@@ -160,11 +160,19 @@ const Page: NextPage = ({
               <NavigationButtonsContainer>
                 {data.page - 1 > 0 && (
                   <>
-                    <Link href={`/page/${data.page - 1}`}>
+                    <Link
+                      href={`/page/${data.page - 1}${
+                        query.price ? `?price=${query.price}` : ''
+                      }`}
+                    >
                       <p className="pointer">&lt;&lt; Anterior</p>
                     </Link>
                     {data.page > 2 && <p>...</p>}
-                    <Link href={`/page/${data.page - 1}`}>
+                    <Link
+                      href={`/page/${data.page - 1}${
+                        query.price ? `?price=${query.price}` : ''
+                      }`}
+                    >
                       <div>{data.page - 1}</div>
                     </Link>
                   </>
@@ -172,11 +180,19 @@ const Page: NextPage = ({
                 <div className="current-page no-pointer">{data.page}</div>
                 {data.page + 1 <= data.totalPages && (
                   <>
-                    <Link href={`/page/${data.page + 1}`}>
+                    <Link
+                      href={`/page/${data.page + 1}${
+                        query.price ? `?price=${query.price}` : ''
+                      }`}
+                    >
                       <div>{data.page + 1}</div>
                     </Link>
                     {data.page + 1 < data.totalPages && <p>...</p>}
-                    <Link href={`/page/${data.page + 1}`}>
+                    <Link
+                      href={`/page/${data.page + 1}${
+                        query.price ? `?price=${query.price}` : ''
+                      }`}
+                    >
                       <p className="pointer last">Próximo &gt;&gt;</p>
                     </Link>
                   </>
