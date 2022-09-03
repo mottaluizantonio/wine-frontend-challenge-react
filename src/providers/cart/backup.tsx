@@ -1,8 +1,8 @@
 import { createContext, useEffect, useState } from 'react';
-import { Item, ItemCart } from '../../interfaces/products';
+import { Item } from '../../interfaces/products';
 
 interface CartContextInterface {
-  cart: ItemCart[] | [];
+  cart: Item[] | [];
   removeFromCart(product: Item): void;
   addToCart(product: Item): void;
 }
@@ -12,7 +12,7 @@ export const CartContext = createContext<CartContextInterface>(
 );
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState<ItemCart[]>([] as ItemCart[]);
+  const [cart, setCart] = useState<Item[]>([] as Item[]);
 
   useEffect(() => {
     const data = localStorage.getItem('cartwinelam');
@@ -21,19 +21,7 @@ export const CartProvider = ({ children }) => {
   }, []);
 
   const addToCart = product => {
-    const productExist = cart.find(({ id }) => id === product.id);
-
-    if (!productExist) {
-      setCart([...cart, { ...product, quantity: 1 }]);
-    } else {
-      const updatedProductList = cart.map(item => {
-        if (item.id === productExist.id)
-          return { ...item, quantity: item.quantity + 1 };
-        return item;
-      });
-      setCart(updatedProductList);
-    }
-
+    setCart([...cart, product]);
     localStorage.setItem('cartwinelam', JSON.stringify(cart));
   };
 

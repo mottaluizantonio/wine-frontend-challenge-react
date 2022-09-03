@@ -111,7 +111,7 @@ export const ContainerRight = styled.div`
       margin-left: 3vw;
     }
 
-    svg:nth-child(-n + 2) {
+    svg:nth-child(-n + 3) {
       display: block;
     }
 

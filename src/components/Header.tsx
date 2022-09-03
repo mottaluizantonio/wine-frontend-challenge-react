@@ -33,7 +33,7 @@ const Header = () => {
         </ul>
       </ContainerLeft>
       <ContainerRight>
-        {cart.length > 0 && <span>{cart.length}</span>}
+        <span>{cart.length > 0 ? cart.length : '0'}</span>
         <Search />
         <Account />
         <Search2 />
