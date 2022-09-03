@@ -14,11 +14,13 @@ import { Button } from '../../styles/components/Button';
 import {
   Container,
   Content,
+  LineDiv,
   PriceOff,
   PricePartner,
   ProductBox,
   ProductsGrid,
-  SealContainer
+  SealContainer,
+  SearchContainer
 } from '../../styles/pages/Page';
 import formatCurrency from '../../utils/formatCurrency';
 
@@ -51,10 +53,15 @@ const Page: NextPage = ({
     <Header />
     <main>
       <Container>
+        <SearchContainer>
+          <h4>Refine sua busca</h4>
+          <p>Por preço</p>
+        </SearchContainer>
         <Content>
           <p>
             <span>{data.totalItems}</span> produtos encontrados
           </p>
+          <LineDiv />
           <ProductsGrid>
             {data.items.map(product => (
               <div>
@@ -89,10 +96,20 @@ const Page: NextPage = ({
                   </ProductBox>
                 </Link>
                 <Button
+                  className="button-desktop"
                   width="256px"
                   marginBottom="30px"
                   fontSize="14px"
                   uppercase
+                >
+                  adicionar
+                </Button>
+                <Button
+                  className="button-mobile"
+                  width="156px"
+                  height="40px"
+                  marginBottom="24px"
+                  fontSize="14px"
                 >
                   adicionar
                 </Button>
