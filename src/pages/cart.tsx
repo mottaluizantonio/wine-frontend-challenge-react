@@ -12,11 +12,6 @@ import {
   ProductsGrid
 } from '../styles/pages/Cart';
 
-// interface ReduceProps {
-//   acc: number;
-//   quantity: number;
-// }
-
 const Page: NextPage = () => {
   const { cart, addToCart, removeFromCart } = useContext(CartContext);
 

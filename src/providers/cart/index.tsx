@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from 'react';
 import { Item, ItemCart } from '../../interfaces/products';
 
 interface CartContextInterface {
-  cart: ItemCart[] | [];
+  cart: ItemCart[];
   addToCart(product: Item, productQuantity: number): void;
   removeFromCart(product: Item, remove: boolean): void;
 }
@@ -20,6 +20,10 @@ export const CartProvider = ({ children }) => {
     if (data) setCart(JSON.parse(data));
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem('cartwinelam', JSON.stringify(cart));
+  }, [cart]);
+
   const addToCart = (product, productQuantity) => {
     const productExist = cart.find(({ id }) => id === product.id);
 
@@ -33,7 +37,6 @@ export const CartProvider = ({ children }) => {
       });
       setCart(updatedProductList);
     }
-    localStorage.setItem('cartwinelam', JSON.stringify(cart));
   };
 
   const removeFromCart = (product, remove) => {
@@ -48,8 +51,6 @@ export const CartProvider = ({ children }) => {
       });
       setCart(updatedProductList);
     }
-
-    localStorage.setItem('cartwinelam', JSON.stringify(cart));
   };
 
   return (
@@ -58,9 +59,3 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
-
-// const removeFromCart = product => {
-//   const newCartList = cart.filter(({ id }) => id !== product.id);
-//   setCart(newCartList);
-//   localStorage.setItem('cartwinelam', JSON.stringify(newCartList));
-// };
