@@ -120,6 +120,7 @@ export const ContainerRight = styled.div`
       padding: 10px 20px;
       margin-right: -10vw;
       border: 1px solid #c81a78;
+      outline: none;
     }
 
     .button-search {
