@@ -18,6 +18,7 @@ export const Container = styled.div`
 export const ProductsGrid = styled.div`
   width: 100%;
   font-weight: 700;
+  margin-bottom: 150px;
 
   display: flex;
   align-items: center;
@@ -152,5 +153,68 @@ export const PricePartner = styled.div`
     font-size: 16px;
     text-align: center;
     margin-left: 4px;
+  }
+`;
+
+export const FooterCart = styled.div`
+  height: 150px;
+  width: 100vw;
+  padding: 0 5vw;
+  background: ${props => props.theme.colors.white};
+  box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.0627185);
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  > div {
+    > div {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+
+      p:nth-child(1) {
+        color: ${props => props.theme.colors.grayDark};
+        font-weight: 700;
+      }
+      p:nth-child(2) {
+        color: ${props => props.theme.colors.tannatDefault};
+        font-size: 24px;
+        font-weight: 700;
+      }
+    }
+
+    > p {
+      margin: 15px 0px;
+      font-size: 12px;
+      text-align: center;
+      color: ${props => props.theme.colors.grayLighter};
+    }
+  }
+`;
+
+export const EmptyCart = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  > span {
+    color: ${props => props.theme.colors.graySilver};
+    font-size: 28px;
+    font-weight: 700;
+    margin: 40px 0 20px;
+  }
+
+  > p {
+    width: 300px;
+    color: ${props => props.theme.colors.grayDarker};
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
   }
 `;

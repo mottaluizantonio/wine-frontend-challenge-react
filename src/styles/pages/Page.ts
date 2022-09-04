@@ -405,3 +405,25 @@ export const NavigationButtonsContainer = styled.div`
     margin-right: 0px;
   }
 `;
+
+export const EmptyProducts = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  > span {
+    color: ${props => props.theme.colors.graySilver};
+    font-size: 28px;
+    font-weight: 700;
+    margin: 40px 0 20px;
+  }
+
+  > p {
+    width: 300px;
+    color: ${props => props.theme.colors.grayDarker};
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+  }
+`;
