@@ -104,6 +104,7 @@ export const ContainerRight = styled.div`
     position: absolute;
     right: 5vw;
     top: 42px;
+    text-align: center;
   }
 
   @media only screen and (min-width: 768px) {
@@ -120,7 +121,7 @@ export const ContainerRight = styled.div`
     }
 
     span {
-      right: 10.5vw;
+      right: 10.3vw;
       top: 50px;
     }
   }

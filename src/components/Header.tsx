@@ -33,7 +33,11 @@ const Header = () => {
         </ul>
       </ContainerLeft>
       <ContainerRight>
-        <span>{cart.length > 0 ? cart.length : '0'}</span>
+        <span>
+          {cart.length > 0
+            ? cart.reduce((acc, { quantity }) => acc + quantity, 0)
+            : '0'}
+        </span>
         <Search />
         <Account />
         <Search2 />

@@ -12,6 +12,11 @@ import {
   ProductsGrid
 } from '../styles/pages/Cart';
 
+// interface ReduceProps {
+//   acc: number;
+//   quantity: number;
+// }
+
 const Page: NextPage = () => {
   const { cart, addToCart } = useContext(CartContext);
 
@@ -27,7 +32,38 @@ const Page: NextPage = () => {
         <Container>
           <ProductsGrid>
             <p>
-              <span>Winebox({cart.length ? cart.length : '0'})</span>
+              <span>
+                Winebox(
+                {cart.length > 0
+                  ? cart.reduce((acc, { quantity }) => acc + quantity, 0)
+                  : '0'}
+                )
+              </span>
+            </p>
+            <p>
+              Total: R${' '}
+              {cart
+                .reduce(
+                  (total, { priceNonMember, quantity }) =>
+                    total + priceNonMember * quantity,
+                  0
+                )
+                .toFixed(2)}
+            </p>
+            <p>
+              Torne-se membro e economize R${' '}
+              {(
+                cart.reduce(
+                  (total, { priceNonMember, quantity }) =>
+                    total + priceNonMember * quantity,
+                  0
+                ) -
+                cart.reduce(
+                  (total, { priceMember, quantity }) =>
+                    total + priceMember * quantity,
+                  0
+                )
+              ).toFixed(2)}
             </p>
             {cart.map(product => (
               <div key={product.id}>
