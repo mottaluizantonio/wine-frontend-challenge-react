@@ -61,6 +61,10 @@ export const ProductBox = styled.div`
 
   img {
     height: 80px;
+
+    :hover {
+      cursor: pointer;
+    }
   }
 
   .product-left {
@@ -79,6 +83,10 @@ export const ProductBox = styled.div`
     font-size: 14px;
     font-weight: 400;
     margin-top: -20px;
+
+    :hover {
+      cursor: pointer;
+    }
   }
 
   .product-quantity {
@@ -92,6 +100,9 @@ export const ProductBox = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    position: relative;
+    top: 15px;
 
     > button {
       width: 20px;

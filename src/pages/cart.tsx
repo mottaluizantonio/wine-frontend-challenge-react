@@ -1,6 +1,7 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
 import { useContext } from 'react';
+import Link from 'next/link';
 
 import Header from '../components/Header';
 import { CartContext } from '../providers/cart';
@@ -31,10 +32,14 @@ const Page: NextPage = () => {
             {cart.map(product => (
               <div key={product.id}>
                 <ProductBox>
-                  <img src={product.image} alt={product.name} />
+                  <Link href={`/product/${product.id}`}>
+                    <img src={product.image} alt={product.name} />
+                  </Link>
 
                   <div className="product-left">
-                    <h2>{product.name}</h2>
+                    <Link href={`/product/${product.id}`}>
+                      <h2>{product.name}</h2>
+                    </Link>
                     <div className="product-quantity">
                       <button type="button">-</button>
                       {product.quantity}
