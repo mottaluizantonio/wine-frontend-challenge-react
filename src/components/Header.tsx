@@ -51,6 +51,7 @@ const Header = () => {
             ? cart.reduce((acc, { quantity }) => acc + quantity, 0)
             : '0'}
         </span>
+
         <div className="search-container">
           <button
             type="button"
@@ -82,6 +83,7 @@ const Header = () => {
             </form>
           </div>
         </div>
+
         <div className="hide-mobile">
           <Account />
         </div>

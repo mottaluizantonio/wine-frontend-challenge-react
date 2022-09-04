@@ -12,7 +12,7 @@ import {
   ProductsGrid
 } from '../styles/pages/Cart';
 
-const Page: NextPage = () => {
+const Cart: NextPage = () => {
   const { cart, addToCart, removeFromCart } = useContext(CartContext);
 
   return (
@@ -126,4 +126,4 @@ const Page: NextPage = () => {
   );
 };
 
-export default Page;
+export default Cart;
