@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { useContext } from 'react';
+import { CartContext } from '../providers/cart';
 
 import Search from '../assets/search.svg';
 import Search2 from '../assets/search2.svg';
@@ -12,28 +14,41 @@ import {
   ContainerRight
 } from '../styles/components/Header';
 
-const Header = () => (
-  <Container>
-    <ContainerLeft>
-      <HambMenu />
-      <Link href="/page/1">
-        <Winelogo />
-      </Link>
-      <ul>
-        <li>Clube</li>
-        <li>Loja</li>
-        <li>Produtores</li>
-        <li>Ofertas</li>
-        <li>Eventos</li>
-      </ul>
-    </ContainerLeft>
-    <ContainerRight>
-      <Search />
-      <Account />
-      <Search2 />
-      <Winebox />
-    </ContainerRight>
-  </Container>
-);
+const Header = () => {
+  const { cart } = useContext(CartContext);
+
+  return (
+    <Container>
+      <ContainerLeft>
+        <HambMenu />
+        <Link href="/page/1">
+          <Winelogo />
+        </Link>
+        <ul>
+          <li>Clube</li>
+          <Link href="/page/1">
+            <li>Loja</li>
+          </Link>
+          <li>Produtores</li>
+          <li>Ofertas</li>
+          <li>Eventos</li>
+        </ul>
+      </ContainerLeft>
+      <ContainerRight>
+        <span>
+          {cart.length > 0
+            ? cart.reduce((acc, { quantity }) => acc + quantity, 0)
+            : '0'}
+        </span>
+        <Search />
+        <Account />
+        <Search2 />
+        <Link href="/cart">
+          <Winebox />
+        </Link>
+      </ContainerRight>
+    </Container>
+  );
+};
 
 export default Header;

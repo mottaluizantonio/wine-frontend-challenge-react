@@ -206,8 +206,16 @@ export const PricesContainer = styled.div`
     > p {
       color: ${props => props.theme.colors.tannatDefault};
       font-weight: 900;
-      font-size: 32px;
+      font-size: 20px;
       margin-bottom: 8px;
+    }
+
+    .price-big {
+      font-size: 32px;
+    }
+
+    .price-medium {
+      font-size: 24px;
     }
 
     > span {
@@ -287,24 +295,42 @@ export const ButtonContainer = styled.div`
         font-weight: 600;
       }
 
-      > p:nth-child(2) {
-        position: relative;
-        height: 27px;
-        left: -35px;
+      > button {
+        padding: 10px;
+        background: none;
+        border: none;
+        color: ${props => props.theme.colors.white};
+
+        :hover {
+          cursor: pointer;
+        }
       }
 
-      > p:nth-last-child(2) {
+      > button:nth-child(2) {
         position: relative;
-        height: 26px;
-        left: 37px;
+        height: 35px;
+        left: -37px;
+      }
+
+      > button:nth-last-child(2) {
+        position: relative;
+        height: 34px;
+        left: 39px;
       }
     }
 
-    > div:last-child {
-      padding: 5px 0 5px;
+    > button:last-child {
+      background: none;
+      border: none;
+      padding: 15px 40px;
       font-size: 16px;
       font-weight: 700;
       border-left: 1px solid rgba(255, 255, 255, 0.1);
+      color: ${props => props.theme.colors.white};
+
+      :hover {
+        cursor: pointer;
+      }
     }
   }
 `;

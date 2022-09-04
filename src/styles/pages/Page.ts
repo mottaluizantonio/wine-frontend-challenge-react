@@ -24,6 +24,7 @@ export const Content = styled.div`
 `;
 
 export const SearchContainer = styled.div`
+  min-width: 136px;
   display: none;
   justify-content: flex-start;
   align-items: flex-start;
@@ -103,7 +104,7 @@ export const SearchContainer = styled.div`
     display: block;
   }
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 940px) {
     display: flex;
   }
 `;
@@ -264,6 +265,7 @@ export const PriceOff = styled.div`
     }
   }
 `;
+
 export const PricePartner = styled.div`
   margin: 10px 0;
   display: flex;

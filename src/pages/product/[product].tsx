@@ -4,6 +4,7 @@ import {
   InferGetServerSidePropsType
 } from 'next';
 import { useRouter } from 'next/router';
+import { useContext, useState } from 'react';
 
 import Head from 'next/head';
 import Header from '../../components/Header';
@@ -13,7 +14,6 @@ import ArrowRegion from '../../assets/arrowRegion.svg';
 import StarEmpty from '../../assets/starEmpty.svg';
 import StarFull from '../../assets/starFull.svg';
 import RoundEmpty from '../../assets/roundEmpty.svg';
-import RoundEmptyFade from '../../assets/roundEmptyFade.svg';
 
 import {
   ButtonContainer,
@@ -35,6 +35,7 @@ import {
 import Button from '../../styles/components/Button';
 import formatCurrency from '../../utils/formatCurrency';
 import { Data, Item } from '../../interfaces/products';
+import { CartContext } from '../../providers/cart';
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const res = await fetch(`https://wine-back-test.herokuapp.com/products?`);
@@ -54,6 +55,8 @@ const Product: NextPage = ({
   findProduct
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const router = useRouter();
+  const { addToCart } = useContext(CartContext);
+  const [addQuantity, setAddQuantity] = useState<number>(1);
 
   return (
     <div>
@@ -102,7 +105,21 @@ const Product: NextPage = ({
               </ProductHeader>
               <img src={findProduct.image} alt={findProduct.name} />
               <PricesContainer>
-                <p>{formatCurrency(findProduct.priceMember)}</p>
+                <p>
+                  R$&nbsp;
+                  <span className="price-big">
+                    {findProduct.priceMember.toString().split('.')[0]}
+                  </span>
+                  <span className="price-medium">
+                    ,
+                    {
+                      findProduct.priceMember
+                        .toFixed(2)
+                        .toString()
+                        .split('.')[1]
+                    }
+                  </span>
+                </p>
                 <span>
                   NÃO SÓCIO {formatCurrency(findProduct.priceNonMember)}/UN.
                 </span>
@@ -114,11 +131,32 @@ const Product: NextPage = ({
               </DescriptionContainer>
               <ButtonContainer>
                 <div>
-                  <RoundEmptyFade />
-                  <p>-</p>1<p>+</p>
+                  <RoundEmpty />
+                  <button
+                    type="button"
+                    className="quantity-button"
+                    onClick={() =>
+                      addQuantity > 1 && setAddQuantity(addQuantity - 1)
+                    }
+                  >
+                    -
+                  </button>
+                  {addQuantity}
+                  <button
+                    type="button"
+                    className="quantity-button"
+                    onClick={() => setAddQuantity(addQuantity + 1)}
+                  >
+                    +
+                  </button>
                   <RoundEmpty />
                 </div>
-                <div>Adicionar</div>
+                <button
+                  type="button"
+                  onClick={() => addToCart(findProduct, addQuantity)}
+                >
+                  Adicionar
+                </button>
               </ButtonContainer>
             </ContentRight>
           </Content>

@@ -16,6 +16,25 @@ export interface Item {
   flag: string;
   sommelierComment: string;
 }
+export interface ItemCart {
+  id: number;
+  image: string;
+  name: string;
+  price: number;
+  discount: number;
+  priceMember: number;
+  priceNonMember: number;
+  type: string;
+  classification: string;
+  size: string;
+  rating: number;
+  avaliations: number;
+  country: string;
+  region: string;
+  flag: string;
+  sommelierComment: string;
+  quantity: number;
+}
 
 export interface Data {
   page: number;

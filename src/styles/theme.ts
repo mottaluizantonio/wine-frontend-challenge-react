@@ -17,6 +17,7 @@ const theme = {
     backgroundInput: '#EAEAEA',
     text: '#121214',
     greenButton: '#7EBC43',
+    chardonnay: '#4FBFA5',
     cheninDefault: '#F26649',
     tavelDefault: '#F79552'
   }
