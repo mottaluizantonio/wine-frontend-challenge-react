@@ -43,7 +43,7 @@ export const ContainerLeft = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
-    svg:first-child {
+    > svg:nth-child(1) {
       display: none;
     }
 
@@ -89,12 +89,53 @@ export const ContainerRight = styled.div`
     }
   }
 
-  svg:nth-child(-n + 3) {
-    display: none;
-  }
-
   svg:nth-child(4) {
     margin-right: 20px;
+  }
+
+  .search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 50px;
+    color: ${props => props.theme.colors.grayDefault};
+    background: ${props => props.theme.colors.white};
+    opacity: 0;
+    box-shadow: 0px 9.73384px 14.6008px rgba(0, 0, 0, 0.1);
+
+    position: absolute;
+    right: 0px;
+    top: 70px;
+
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    input {
+      width: 90vw;
+      padding: 10px 20px;
+      margin-right: -10vw;
+      border: 1px solid #c81a78;
+    }
+
+    .button-search {
+      position: relative;
+      top: 3px;
+    }
+  }
+
+  .search.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .search-container button {
+    border: none;
+    background: none;
   }
 
   span {
@@ -107,17 +148,37 @@ export const ContainerRight = styled.div`
     text-align: center;
   }
 
+  .hide-mobile {
+    display: none;
+  }
+
+  .search-mobile {
+    margin-right: 20px;
+  }
+
   @media only screen and (min-width: 768px) {
     svg:nth-child(n + 3) {
       margin-left: 3vw;
     }
+    svg:nth-child(1) {
+      margin-left: 3vw;
+    }
 
-    svg:nth-child(-n + 3) {
+    .hide-desktop {
+      display: none;
+    }
+
+    .hide-mobile {
       display: block;
     }
 
-    svg:nth-child(4) {
-      display: none;
+    .search {
+      top: 90px;
+
+      input {
+        margin-right: -6vw;
+        width: 50vw;
+      }
     }
 
     span {

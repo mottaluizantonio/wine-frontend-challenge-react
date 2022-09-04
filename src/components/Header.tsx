@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useContext } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { CartContext } from '../providers/cart';
 
 import Search from '../assets/search.svg';
@@ -16,13 +16,24 @@ import {
 
 const Header = () => {
   const { cart } = useContext(CartContext);
+  const dropDownRef = useRef(null);
+  const [isActive, setIsActive] = useState(false);
+  const [inputText, setInputText] = useState('');
+
+  const handleClickSearch = () => setIsActive(!isActive);
+
+  const inputHandler = e => {
+    setInputText(e.target.value);
+  };
 
   return (
     <Container>
       <ContainerLeft>
         <HambMenu />
         <Link href="/page/1">
-          <Winelogo />
+          <div>
+            <Winelogo />
+          </div>
         </Link>
         <ul>
           <li>Clube</li>
@@ -40,11 +51,46 @@ const Header = () => {
             ? cart.reduce((acc, { quantity }) => acc + quantity, 0)
             : '0'}
         </span>
-        <Search />
-        <Account />
-        <Search2 />
+
+        <div className="search-container">
+          <button
+            type="button"
+            onClick={handleClickSearch}
+            className="menu-button"
+          >
+            <div className="hide-mobile">
+              <Search />
+            </div>
+            <div className="hide-desktop search-mobile">
+              <Search2 />
+            </div>
+          </button>
+          <div
+            ref={dropDownRef}
+            className={`search ${isActive ? 'active' : 'inactive'}`}
+          >
+            <form>
+              <input
+                type="text"
+                placeholder="Pesquisar"
+                onChange={inputHandler}
+              />
+              <Link href={`/page/1?name=${inputText}`}>
+                <div className="button-search">
+                  <Search2 />
+                </div>
+              </Link>
+            </form>
+          </div>
+        </div>
+
+        <div className="hide-mobile">
+          <Account />
+        </div>
         <Link href="/cart">
-          <Winebox />
+          <div className="winebox">
+            <Winebox />
+          </div>
         </Link>
       </ContainerRight>
     </Container>

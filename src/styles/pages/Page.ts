@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100vw;
-  padding: 0 5vw 0 5vw;
+  padding: 0;
 
   display: flex;
   justify-content: center;
@@ -117,8 +117,8 @@ export const MainContent = styled.div`
   align-items: flex-start;
   flex-direction: column;
 
-  > p {
-    margin: 0px 0px 20px;
+  .top-search {
+    margin: 0px 0px 20px 5%;
     font-size: 18px;
     color: ${props => props.theme.colors.grayLight};
     font-weight: 400;
@@ -127,11 +127,15 @@ export const MainContent = styled.div`
       color: ${props => props.theme.colors.grayCard};
       font-weight: 700;
     }
+
+    > p {
+      margin-bottom: 20px;
+    }
   }
 
   @media only screen and (min-width: 768px) {
-    > p {
-      margin: 0px 0px 30px;
+    .top-search {
+      margin: 0px 0px 30px 10px;
       font-size: 18px;
       color: ${props => props.theme.colors.grayDark};
 
@@ -143,7 +147,8 @@ export const MainContent = styled.div`
 `;
 
 export const LineDiv = styled.div`
-  width: 100%;
+  width: 90%;
+  margin-left: 5%;
   border-bottom: 0.5px solid #d5d5d5;
   margin-bottom: 20px;
 
@@ -157,9 +162,14 @@ export const ProductsGrid = styled.div`
   font-weight: 700;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+
+  .button {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 
   .button-desktop {
     display: none;
@@ -178,7 +188,7 @@ export const ProductsGrid = styled.div`
 export const ProductBox = styled.div`
   width: 156px;
   height: 348px;
-  margin-bottom: 16px;
+  margin: 0px 10px 16px;
   padding: 10px;
   background: ${props => props.theme.colors.white};
   box-shadow: 0px 9.73384px 14.6008px rgba(0, 0, 0, 0.1);
@@ -394,46 +404,4 @@ export const NavigationButtonsContainer = styled.div`
   .last {
     margin-right: 0px;
   }
-
-  /* @media only screen and (min-width: 768px) {
-    > div {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      width: 40px;
-      height: 40px;
-      border: 1px solid #b6116e;
-      border-radius: 3px;
-      font-size: 16px;
-      margin-right: 8px;
-
-      :hover {
-        cursor: pointer;
-      }
-    }
-
-    p {
-      font-size: 12px;
-      margin-right: 8px;
-    }
-
-    .pointer {
-      :hover {
-        cursor: pointer;
-      }
-    }
-
-    .no-pointer {
-      :hover {
-        cursor: default;
-      }
-    }
-
-    .current-page {
-      color: ${props => props.theme.colors.white};
-      background: ${props => props.theme.colors.tannatAnother};
-      width: 75px;
-    }
-  } */
 `;
