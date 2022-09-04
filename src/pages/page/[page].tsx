@@ -34,7 +34,9 @@ export const getServerSideProps: GetServerSideProps = async ({
   query
 }) => {
   const res = await fetch(
-    `https://wine-back-test.herokuapp.com/products?page=${params.page}&limit=9&filter=${query.price}`
+    `https://wine-back-test.herokuapp.com/products?page=${
+      params.page
+    }&limit=9&filter=${query.price}&name=${query.name ? query.name : ''}`
   );
   const data: Data = await res.json();
 
@@ -66,7 +68,7 @@ const Page: NextPage = ({
             <SearchContainer>
               <h4>Refine sua busca</h4>
               <p>Por preço</p>
-              <Link href="/page/1?price=0-40">
+              <Link href={`/page/1?price=0-40&name=${query.name}`}>
                 <div className="container">
                   <input
                     type="checkbox"
@@ -77,7 +79,7 @@ const Page: NextPage = ({
                   <span className="checkbox-text">Até R$40</span>
                 </div>
               </Link>
-              <Link href="/page/1?price=40-60">
+              <Link href={`/page/1?price=40-60&name=${query.name}`}>
                 <div className="container">
                   <input
                     type="checkbox"
@@ -88,7 +90,7 @@ const Page: NextPage = ({
                   <span className="checkbox-text">R$40 A R$60</span>
                 </div>
               </Link>
-              <Link href="/page/1?price=100-200">
+              <Link href={`/page/1?price=100-200&name=${query.name}`}>
                 <div className="container">
                   <input
                     type="checkbox"
@@ -99,7 +101,7 @@ const Page: NextPage = ({
                   <span className="checkbox-text">R$100 A R$200</span>
                 </div>
               </Link>
-              <Link href="/page/1?price=200-500">
+              <Link href={`/page/1?price=200-500&name=${query.name}`}>
                 <div className="container">
                   <input
                     type="checkbox"
@@ -110,7 +112,7 @@ const Page: NextPage = ({
                   <span className="checkbox-text">R$200 A R$500</span>
                 </div>
               </Link>
-              <Link href="/page/1?price=500-500">
+              <Link href={`/page/1?price=500-500&name=${query.name}`}>
                 <div className="container">
                   <input
                     type="checkbox"
@@ -163,7 +165,7 @@ const Page: NextPage = ({
                       </ProductBox>
                     </Link>
                     <Button
-                      className="button-desktop"
+                      className="button button-desktop"
                       width="256px"
                       marginBottom="30px"
                       fontSize="14px"
@@ -173,7 +175,7 @@ const Page: NextPage = ({
                       adicionar
                     </Button>
                     <Button
-                      className="button-mobile"
+                      className="button button-mobile"
                       width="156px"
                       height="40px"
                       marginBottom="24px"
@@ -191,7 +193,9 @@ const Page: NextPage = ({
                     <>
                       <Link
                         href={`/page/${data.page - 1}${
-                          query.price ? `?price=${query.price}` : ''
+                          query.price
+                            ? `?price=${query.price}?name=${query.name}`
+                            : `?name=${query.name}`
                         }`}
                       >
                         <p className="pointer">&lt;&lt; Anterior</p>
@@ -199,7 +203,9 @@ const Page: NextPage = ({
                       {data.page > 2 && <p>...</p>}
                       <Link
                         href={`/page/${data.page - 1}${
-                          query.price ? `?price=${query.price}` : ''
+                          query.price
+                            ? `?price=${query.price}?name=${query.name}`
+                            : `?name=${query.name}`
                         }`}
                       >
                         <div>{data.page - 1}</div>
@@ -211,7 +217,9 @@ const Page: NextPage = ({
                     <>
                       <Link
                         href={`/page/${data.page + 1}${
-                          query.price ? `?price=${query.price}` : ''
+                          query.price
+                            ? `?price=${query.price}?name=${query.name}`
+                            : `?name=${query.name}`
                         }`}
                       >
                         <div>{data.page + 1}</div>
@@ -219,7 +227,9 @@ const Page: NextPage = ({
                       {data.page + 1 < data.totalPages && <p>...</p>}
                       <Link
                         href={`/page/${data.page + 1}${
-                          query.price ? `?price=${query.price}` : ''
+                          query.price
+                            ? `?price=${query.price}?name=${query.name}`
+                            : `?name=${query.name}`
                         }`}
                       >
                         <p className="pointer last">Próximo &gt;&gt;</p>

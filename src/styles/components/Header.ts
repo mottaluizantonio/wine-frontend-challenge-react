@@ -97,6 +97,31 @@ export const ContainerRight = styled.div`
     margin-right: 20px;
   }
 
+  .search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 50px;
+    color: ${props => props.theme.colors.grayDefault};
+    background: ${props => props.theme.colors.white};
+    opacity: 0;
+    position: absolute;
+    right: 0px;
+    top: 90px;
+  }
+
+  .search.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .search-container button {
+    border: none;
+    background: none;
+  }
+
   span {
     color: ${props => props.theme.colors.chardonnay};
     font-weight: 700;
