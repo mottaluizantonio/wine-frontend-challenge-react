@@ -71,11 +71,11 @@ const Header = () => {
             <form>
               <input
                 type="text"
-                placeholder="digite sua busca"
+                placeholder="Pesquisar"
                 onChange={inputHandler}
               />
               <Link href={`/page/1?name=${inputText}`}>
-                <div>
+                <div className="button-search">
                   <Search2 />
                 </div>
               </Link>

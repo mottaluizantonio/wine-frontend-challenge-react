@@ -125,14 +125,14 @@ const Page: NextPage = ({
               </Link>
             </SearchContainer>
             <MainContent>
-              <p>
+              <div className="top-search">
                 {query.name && (
                   <p>
                     Buscando &quot;<span>{query.name}</span>&quot;
                   </p>
                 )}
                 <span>{data.totalItems}</span> produtos encontrados
-              </p>
+              </div>
               <LineDiv />
               <ProductsGrid>
                 {data.items.map(product => (

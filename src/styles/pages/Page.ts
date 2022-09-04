@@ -117,7 +117,7 @@ export const MainContent = styled.div`
   align-items: flex-start;
   flex-direction: column;
 
-  > p {
+  .top-search {
     margin: 0px 0px 20px 5%;
     font-size: 18px;
     color: ${props => props.theme.colors.grayLight};
@@ -134,7 +134,7 @@ export const MainContent = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
-    > p {
+    .top-search {
       margin: 0px 0px 30px 10px;
       font-size: 18px;
       color: ${props => props.theme.colors.grayDark};

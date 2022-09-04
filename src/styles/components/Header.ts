@@ -103,9 +103,29 @@ export const ContainerRight = styled.div`
     color: ${props => props.theme.colors.grayDefault};
     background: ${props => props.theme.colors.white};
     opacity: 0;
+    box-shadow: 0px 9.73384px 14.6008px rgba(0, 0, 0, 0.1);
+
     position: absolute;
     right: 0px;
     top: 70px;
+
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    input {
+      width: 90vw;
+      padding: 10px 20px;
+      margin-right: -10vw;
+      border: 1px solid #c81a78;
+    }
+
+    .button-search {
+      position: relative;
+      top: 3px;
+    }
   }
 
   .search.active {
@@ -154,6 +174,11 @@ export const ContainerRight = styled.div`
 
     .search {
       top: 90px;
+
+      input {
+        margin-right: -6vw;
+        width: 50vw;
+      }
     }
 
     span {
