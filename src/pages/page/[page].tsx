@@ -5,6 +5,7 @@ import {
 } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+
 import { useContext } from 'react';
 
 import BlackWine from '../../assets/blackWine.svg';
