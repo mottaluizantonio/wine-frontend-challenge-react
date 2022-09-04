@@ -5,6 +5,7 @@ import {
 } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
+
 import { useContext } from 'react';
 
 import BlackWine from '../../assets/blackWine.svg';
@@ -16,6 +17,7 @@ import Button from '../../styles/components/Button';
 import {
   Container,
   Content,
+  EmptyProducts,
   LineDiv,
   MainContent,
   NavigationButtonsContainer,
@@ -68,7 +70,9 @@ const Page: NextPage = ({
             <SearchContainer>
               <h4>Refine sua busca</h4>
               <p>Por preço</p>
-              <Link href={`/page/1?price=0-40&name=${query.name}`}>
+              <Link
+                href={`/page/1?price=0-40&name=${query.name ? query.name : ''}`}
+              >
                 <div className="container">
                   <input
                     type="checkbox"
@@ -79,7 +83,11 @@ const Page: NextPage = ({
                   <span className="checkbox-text">Até R$40</span>
                 </div>
               </Link>
-              <Link href={`/page/1?price=40-60&name=${query.name}`}>
+              <Link
+                href={`/page/1?price=40-60&name=${
+                  query.name ? query.name : ''
+                }`}
+              >
                 <div className="container">
                   <input
                     type="checkbox"
@@ -90,7 +98,11 @@ const Page: NextPage = ({
                   <span className="checkbox-text">R$40 A R$60</span>
                 </div>
               </Link>
-              <Link href={`/page/1?price=100-200&name=${query.name}`}>
+              <Link
+                href={`/page/1?price=100-200&name=${
+                  query.name ? query.name : ''
+                }`}
+              >
                 <div className="container">
                   <input
                     type="checkbox"
@@ -101,7 +113,11 @@ const Page: NextPage = ({
                   <span className="checkbox-text">R$100 A R$200</span>
                 </div>
               </Link>
-              <Link href={`/page/1?price=200-500&name=${query.name}`}>
+              <Link
+                href={`/page/1?price=200-500&name=${
+                  query.name ? query.name : ''
+                }`}
+              >
                 <div className="container">
                   <input
                     type="checkbox"
@@ -112,7 +128,11 @@ const Page: NextPage = ({
                   <span className="checkbox-text">R$200 A R$500</span>
                 </div>
               </Link>
-              <Link href={`/page/1?price=500-500&name=${query.name}`}>
+              <Link
+                href={`/page/1?price=500-500&name=${
+                  query.name ? query.name : ''
+                }`}
+              >
                 <div className="container">
                   <input
                     type="checkbox"
@@ -125,15 +145,26 @@ const Page: NextPage = ({
               </Link>
             </SearchContainer>
             <MainContent>
-              <div className="top-search">
-                {query.name && (
-                  <p>
-                    Buscando &quot;<span>{query.name}</span>&quot;
-                  </p>
-                )}
-                <span>{data.totalItems}</span> produtos encontrados
-              </div>
-              <LineDiv />
+              {data.totalItems === 0 && (
+                <EmptyProducts>
+                  <span>=(</span>
+                  <p>Desculpe, não encontramos nenhum produto</p>
+                </EmptyProducts>
+              )}
+
+              {data.totalItems > 0 && (
+                <>
+                  <div className="top-search">
+                    {query.name && (
+                      <p>
+                        Buscando &quot;<span>{query.name}</span>&quot;
+                      </p>
+                    )}
+                    <span>{data.totalItems}</span> produtos encontrados
+                  </div>
+                  <LineDiv />
+                </>
+              )}
               <ProductsGrid>
                 {data.items.map(product => (
                   <div key={product.id}>
@@ -217,7 +248,10 @@ const Page: NextPage = ({
                       </Link>
                     </>
                   )}
-                  <div className="current-page no-pointer">{data.page}</div>
+                  {data.totalItems > 0 && (
+                    <div className="current-page no-pointer">{data.page}</div>
+                  )}
+
                   {data.page + 1 <= data.totalPages && (
                     <>
                       <Link

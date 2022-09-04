@@ -7,10 +7,13 @@ import Header from '../components/Header';
 import { CartContext } from '../providers/cart';
 import {
   Container,
+  EmptyCart,
+  FooterCart,
   PricePartner,
   ProductBox,
   ProductsGrid
 } from '../styles/pages/Cart';
+import Button from '../styles/components/Button';
 
 const Cart: NextPage = () => {
   const { cart, addToCart, removeFromCart } = useContext(CartContext);
@@ -35,31 +38,12 @@ const Cart: NextPage = () => {
                 )
               </span>
             </p>
-            <p>
-              Total: R${' '}
-              {cart
-                .reduce(
-                  (total, { priceNonMember, quantity }) =>
-                    total + priceNonMember * quantity,
-                  0
-                )
-                .toFixed(2)}
-            </p>
-            <p>
-              Torne-se membro e economize R${' '}
-              {(
-                cart.reduce(
-                  (total, { priceNonMember, quantity }) =>
-                    total + priceNonMember * quantity,
-                  0
-                ) -
-                cart.reduce(
-                  (total, { priceMember, quantity }) =>
-                    total + priceMember * quantity,
-                  0
-                )
-              ).toFixed(2)}
-            </p>
+            {cart.length === 0 && (
+              <EmptyCart>
+                <span>=(</span>
+                <p>Você ainda não escolheu seus produtos</p>
+              </EmptyCart>
+            )}
             {cart.map(product => (
               <div key={product.id}>
                 <ProductBox>
@@ -120,6 +104,42 @@ const Cart: NextPage = () => {
               </div>
             ))}
           </ProductsGrid>
+
+          <FooterCart>
+            <div>
+              <div>
+                <p>Total:</p>
+                <p>
+                  R${' '}
+                  {cart
+                    .reduce(
+                      (total, { priceNonMember, quantity }) =>
+                        total + priceNonMember * quantity,
+                      0
+                    )
+                    .toFixed(2)}
+                </p>
+              </div>
+              <p>
+                Torne-se membro e economize R${' '}
+                {(
+                  cart.reduce(
+                    (total, { priceNonMember, quantity }) =>
+                      total + priceNonMember * quantity,
+                    0
+                  ) -
+                  cart.reduce(
+                    (total, { priceMember, quantity }) =>
+                      total + priceMember * quantity,
+                    0
+                  )
+                ).toFixed(2)}
+              </p>
+              <Button width="300px" height="45px">
+                finalizar pedido
+              </Button>
+            </div>
+          </FooterCart>
         </Container>
       </main>
     </div>

@@ -346,7 +346,7 @@ export const ButtonContainer = styled.div`
 export const FooterMobile = styled.div`
   height: 80px;
   width: 100vw;
-  padding: 0 5vw 0 5vw;
+  padding: 0 5vw;
   background: ${props => props.theme.colors.white};
   box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.0627185);
 
