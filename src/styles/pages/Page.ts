@@ -265,6 +265,7 @@ export const PriceOff = styled.div`
     }
   }
 `;
+
 export const PricePartner = styled.div`
   margin: 10px 0;
   display: flex;

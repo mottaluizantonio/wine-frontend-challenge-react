@@ -33,7 +33,6 @@ export const CartProvider = ({ children }) => {
       });
       setCart(updatedProductList);
     }
-
     localStorage.setItem('cartwinelam', JSON.stringify(cart));
   };
 
