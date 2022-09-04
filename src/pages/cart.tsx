@@ -105,11 +105,15 @@ const Page: NextPage = () => {
                       <p>
                         R$
                         <span>
-                          {product.priceNonMember.toString().split('.')[0]}
+                          {
+                            (product.priceNonMember * product.quantity)
+                              .toString()
+                              .split('.')[0]
+                          }
                         </span>
                         ,
                         {
-                          product.priceNonMember
+                          (product.priceNonMember * product.quantity)
                             .toFixed(2)
                             .toString()
                             .split('.')[1]
