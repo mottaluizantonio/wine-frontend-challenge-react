@@ -102,7 +102,21 @@ const Product: NextPage = ({
               </ProductHeader>
               <img src={findProduct.image} alt={findProduct.name} />
               <PricesContainer>
-                <p>{formatCurrency(findProduct.priceMember)}</p>
+                <p>
+                  R$&nbsp;
+                  <span className="price-big">
+                    {findProduct.priceMember.toString().split('.')[0]}
+                  </span>
+                  <span className="price-medium">
+                    ,
+                    {
+                      findProduct.priceMember
+                        .toFixed(2)
+                        .toString()
+                        .split('.')[1]
+                    }
+                  </span>
+                </p>
                 <span>
                   NÃO SÓCIO {formatCurrency(findProduct.priceNonMember)}/UN.
                 </span>

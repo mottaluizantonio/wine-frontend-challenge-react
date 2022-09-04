@@ -52,6 +52,7 @@ export const ProductBox = styled.div`
     border-radius: 50px;
     text-align: center;
     line-height: 14px;
+    background: none;
 
     :hover {
       cursor: pointer;

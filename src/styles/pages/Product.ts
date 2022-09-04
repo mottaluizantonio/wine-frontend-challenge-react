@@ -206,8 +206,16 @@ export const PricesContainer = styled.div`
     > p {
       color: ${props => props.theme.colors.tannatDefault};
       font-weight: 900;
-      font-size: 32px;
+      font-size: 20px;
       margin-bottom: 8px;
+    }
+
+    .price-big {
+      font-size: 32px;
+    }
+
+    .price-medium {
+      font-size: 24px;
     }
 
     > span {

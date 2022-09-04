@@ -37,7 +37,9 @@ const Header = () => {
         <Search />
         <Account />
         <Search2 />
-        <Winebox />
+        <Link href="/cart">
+          <Winebox />
+        </Link>
       </ContainerRight>
     </Container>
   );
