@@ -126,6 +126,11 @@ const Page: NextPage = ({
             </SearchContainer>
             <MainContent>
               <p>
+                {query.name && (
+                  <p>
+                    Buscando &quot;<span>{query.name}</span>&quot;
+                  </p>
+                )}
                 <span>{data.totalItems}</span> produtos encontrados
               </p>
               <LineDiv />

@@ -36,11 +36,19 @@ export const ContainerReturn = styled.div`
 export const DivClickReturn = styled.div`
   display: flex;
   justify-content: left;
-  align-items: center;
+  align-items: flex-end;
   flex-direction: row;
+
+  width: 100px;
+  height: 100px;
 
   > svg {
     margin-right: 20px;
+    margin-bottom: 15px;
+  }
+
+  > span {
+    margin-bottom: 15px;
   }
 
   :hover {

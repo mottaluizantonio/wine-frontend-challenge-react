@@ -127,6 +127,10 @@ export const MainContent = styled.div`
       color: ${props => props.theme.colors.grayCard};
       font-weight: 700;
     }
+
+    > p {
+      margin-bottom: 20px;
+    }
   }
 
   @media only screen and (min-width: 768px) {

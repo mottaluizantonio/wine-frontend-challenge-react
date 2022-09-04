@@ -43,7 +43,7 @@ export const ContainerLeft = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
-    svg:first-child {
+    > svg:nth-child(1) {
       display: none;
     }
 
@@ -89,10 +89,6 @@ export const ContainerRight = styled.div`
     }
   }
 
-  svg:nth-child(-n + 3) {
-    display: none;
-  }
-
   svg:nth-child(4) {
     margin-right: 20px;
   }
@@ -109,7 +105,7 @@ export const ContainerRight = styled.div`
     opacity: 0;
     position: absolute;
     right: 0px;
-    top: 90px;
+    top: 70px;
   }
 
   .search.active {
@@ -132,17 +128,32 @@ export const ContainerRight = styled.div`
     text-align: center;
   }
 
+  .hide-mobile {
+    display: none;
+  }
+
+  .search-mobile {
+    margin-right: 20px;
+  }
+
   @media only screen and (min-width: 768px) {
     svg:nth-child(n + 3) {
       margin-left: 3vw;
     }
+    svg:nth-child(1) {
+      margin-left: 3vw;
+    }
 
-    svg:nth-child(-n + 3) {
+    .hide-desktop {
+      display: none;
+    }
+
+    .hide-mobile {
       display: block;
     }
 
-    svg:nth-child(4) {
-      display: none;
+    .search {
+      top: 90px;
     }
 
     span {

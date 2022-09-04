@@ -31,7 +31,9 @@ const Header = () => {
       <ContainerLeft>
         <HambMenu />
         <Link href="/page/1">
-          <Winelogo />
+          <div>
+            <Winelogo />
+          </div>
         </Link>
         <ul>
           <li>Clube</li>
@@ -55,7 +57,12 @@ const Header = () => {
             onClick={handleClickSearch}
             className="menu-button"
           >
-            <Search />
+            <div className="hide-mobile">
+              <Search />
+            </div>
+            <div className="hide-desktop search-mobile">
+              <Search2 />
+            </div>
           </button>
           <div
             ref={dropDownRef}
@@ -68,15 +75,20 @@ const Header = () => {
                 onChange={inputHandler}
               />
               <Link href={`/page/1?name=${inputText}`}>
-                <Search2 />
+                <div>
+                  <Search2 />
+                </div>
               </Link>
             </form>
           </div>
         </div>
-        <Account />
-        <Search2 />
+        <div className="hide-mobile">
+          <Account />
+        </div>
         <Link href="/cart">
-          <Winebox />
+          <div className="winebox">
+            <Winebox />
+          </div>
         </Link>
       </ContainerRight>
     </Container>
