@@ -151,7 +151,10 @@ const Product: NextPage = ({
                   </button>
                   <RoundEmpty />
                 </div>
-                <button type="button" onClick={() => addToCart(findProduct)}>
+                <button
+                  type="button"
+                  onClick={() => addToCart(findProduct, addQuantity)}
+                >
                   Adicionar
                 </button>
               </ButtonContainer>

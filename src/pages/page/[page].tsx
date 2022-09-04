@@ -168,7 +168,7 @@ const Page: NextPage = ({
                       marginBottom="30px"
                       fontSize="14px"
                       uppercase
-                      onClick={() => addToCart(product)}
+                      onClick={() => addToCart(product, 1)}
                     >
                       adicionar
                     </Button>
@@ -178,7 +178,7 @@ const Page: NextPage = ({
                       height="40px"
                       marginBottom="24px"
                       fontSize="14px"
-                      onClick={() => addToCart(product)}
+                      onClick={() => addToCart(product, 1)}
                     >
                       adicionar
                     </Button>

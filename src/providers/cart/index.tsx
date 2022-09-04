@@ -3,8 +3,8 @@ import { Item, ItemCart } from '../../interfaces/products';
 
 interface CartContextInterface {
   cart: ItemCart[] | [];
-  removeFromCart(product: Item): void;
-  addToCart(product: Item): void;
+  addToCart(product: Item, productQuantity: number): void;
+  removeFromCart(product: Item, remove: boolean): void;
 }
 
 export const CartContext = createContext<CartContextInterface>(
@@ -20,15 +20,15 @@ export const CartProvider = ({ children }) => {
     if (data) setCart(JSON.parse(data));
   }, []);
 
-  const addToCart = product => {
+  const addToCart = (product, productQuantity) => {
     const productExist = cart.find(({ id }) => id === product.id);
 
     if (!productExist) {
-      setCart([...cart, { ...product, quantity: 1 }]);
+      setCart([...cart, { ...product, quantity: productQuantity }]);
     } else {
       const updatedProductList = cart.map(item => {
         if (item.id === productExist.id)
-          return { ...item, quantity: item.quantity + 1 };
+          return { ...item, quantity: item.quantity + productQuantity };
         return item;
       });
       setCart(updatedProductList);
@@ -36,10 +36,20 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem('cartwinelam', JSON.stringify(cart));
   };
 
-  const removeFromCart = product => {
-    const newCartList = cart.filter(item => item !== product);
-    setCart(newCartList);
-    localStorage.setItem('cartwinelam', JSON.stringify(newCartList));
+  const removeFromCart = (product, remove) => {
+    if (remove || product.quantity === 1) {
+      const newCartList = cart.filter(({ id }) => id !== product.id);
+      setCart(newCartList);
+    } else {
+      const updatedProductList = cart.map(item => {
+        if (item.id === product.id)
+          return { ...item, quantity: item.quantity - 1 };
+        return item;
+      });
+      setCart(updatedProductList);
+    }
+
+    localStorage.setItem('cartwinelam', JSON.stringify(cart));
   };
 
   return (
@@ -48,3 +58,9 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
+
+// const removeFromCart = product => {
+//   const newCartList = cart.filter(({ id }) => id !== product.id);
+//   setCart(newCartList);
+//   localStorage.setItem('cartwinelam', JSON.stringify(newCartList));
+// };

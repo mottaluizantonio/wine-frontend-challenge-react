@@ -18,7 +18,7 @@ import {
 // }
 
 const Page: NextPage = () => {
-  const { cart, addToCart } = useContext(CartContext);
+  const { cart, addToCart, removeFromCart } = useContext(CartContext);
 
   return (
     <div>
@@ -77,9 +77,17 @@ const Page: NextPage = () => {
                       <h2>{product.name}</h2>
                     </Link>
                     <div className="product-quantity">
-                      <button type="button">-</button>
+                      <button
+                        type="button"
+                        onClick={() => removeFromCart(product, false)}
+                      >
+                        -
+                      </button>
                       {product.quantity}
-                      <button type="button" onClick={() => addToCart(product)}>
+                      <button
+                        type="button"
+                        onClick={() => addToCart(product, 1)}
+                      >
                         +
                       </button>
                     </div>
@@ -89,7 +97,7 @@ const Page: NextPage = () => {
                     <button
                       type="button"
                       className="button-x"
-                      onClick={() => addToCart(product)}
+                      onClick={() => removeFromCart(product, true)}
                     >
                       x
                     </button>
