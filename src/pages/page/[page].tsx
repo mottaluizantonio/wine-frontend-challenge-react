@@ -5,7 +5,7 @@ import {
 } from 'next';
 import Head from 'next/head';
 
-import Header from '../../components/Header';
+import Header from '../../components/header/Header';
 import NavigationContainer from '../../components/page/NavigationContainer';
 import ProductsFound from '../../components/page/ProductsFound';
 import FilterPrice from '../../components/page/FilterPrice';
