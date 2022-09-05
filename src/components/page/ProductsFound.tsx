@@ -2,7 +2,7 @@ import {
   EmptyProducts,
   LineDiv,
   ProductsFoundContainer
-} from '../../styles/components/ProductsFound';
+} from '../../styles/components/page/ProductsFound';
 
 const ProductsFound = ({ data, query }) => (
   <ProductsFoundContainer>

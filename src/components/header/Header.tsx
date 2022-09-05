@@ -1,4 +1,4 @@
-import Container from '../../styles/components/Header';
+import Container from '../../styles/components/header/Header';
 import HeaderContainerLeft from './HeaderContainerLeft';
 import HeaderContainerRight from './HeaderContainerRight';
 

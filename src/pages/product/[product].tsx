@@ -16,7 +16,7 @@ import {
   Content,
   ContentLeft,
   DivClickReturn
-} from '../../styles/pages/Product';
+} from '../../styles/components/product/Product';
 import { Data, Item } from '../../interfaces/products';
 import ProductFooterMobile from '../../components/product/ProductFooterMobile';
 import PoductContentRight from '../../components/product/PoductContentRight';

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
 import { CartContext } from '../../providers/cart';
-import { Container } from '../../styles/components/ProductsGridCart';
+import { Container } from '../../styles/components/cart/ProductsGridCart';
 import EmptyCart from './EmptyCart';
 import ProductBoxCart from './ProductBoxCart';
 import Winebox from './Winebox';

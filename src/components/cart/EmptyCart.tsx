@@ -1,4 +1,4 @@
-import { EmptyCartContainer } from '../../styles/components/ProductsGridCart';
+import { EmptyCartContainer } from '../../styles/components/cart/ProductsGridCart';
 
 const EmptyCart = () => (
   <EmptyCartContainer>

@@ -3,7 +3,7 @@ import {
   FooterMobile,
   PriceDivMobile,
   PriceOffContainer
-} from '../../styles/components/ProductFooterMobile';
+} from '../../styles/components/product/ProductFooterMobile';
 import formatCurrency from '../../utils/formatCurrency';
 
 const ProductFooterMobile = ({ findProduct }) => (

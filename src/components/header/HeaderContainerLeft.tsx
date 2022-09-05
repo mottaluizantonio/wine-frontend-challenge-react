@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import Winelogo from '../../assets/wineLogo.svg';
 import HambMenu from '../../assets/hambMenu.svg';
-import ContainerLeft from '../../styles/components/HeaderContainerLeft';
+import ContainerLeft from '../../styles/components/header/HeaderContainerLeft';
 
 const HeaderContainerLeft = () => (
   <ContainerLeft>

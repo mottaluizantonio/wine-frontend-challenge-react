@@ -7,7 +7,7 @@ import {
   PricePartner,
   SealContainer,
   Container
-} from '../../styles/components/ProductGrid';
+} from '../../styles/components/page/ProductGrid';
 import formatCurrency from '../../utils/formatCurrency';
 import BlackWine from '../../assets/blackWine.svg';
 import Button from '../../styles/components/Button';

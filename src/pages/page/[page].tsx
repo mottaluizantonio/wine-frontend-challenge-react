@@ -10,8 +10,13 @@ import NavigationContainer from '../../components/page/NavigationContainer';
 import ProductsFound from '../../components/page/ProductsFound';
 import FilterPrice from '../../components/page/FilterPrice';
 import { Data } from '../../interfaces/products';
-import { Container, Content, MainContent } from '../../styles/pages/Page';
+
 import ProductGrid from '../../components/page/ProductGrid';
+import {
+  Container,
+  Content,
+  MainContent
+} from '../../styles/components/page/Page';
 
 export const getServerSideProps: GetServerSideProps = async ({
   params,
