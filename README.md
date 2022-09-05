@@ -26,9 +26,9 @@ Como instalar esse projeto:
 
 Algumas das principais tecnologias utilizadas:
 
-- Typescript
-- ReactJS com NextJS;
-- Estilização com styled-components
+- Typescript;
+- NextJS;
+- Estilização com styled-components.
 
 ## 🧠 Pontos de Melhoria
 
@@ -37,9 +37,9 @@ Alguns pontos que queria melhorar no projeto, caso tivesse mais tempo:
 - Estudar e implementar o SWR. Vi que seria a maneira ideal para fazer a requisição da API e utilizar o cache do Next JS;
 - Com o item acima, fazer um Provider para os dados vindos da requisição, tornando de fácil acesso por toda a aplicação e evitando "prop drilling";
 - Ainda com o primeiro item, implementar o carregamento de mais produtos quando em mobile;
-- Refatorar alguns componentes em componentes menores.
+- Refatorar alguns componentes em componentes menores;
 - Implementar o react-tostify, para que seja avisado quando um produto for inserido no carrinho;
-- Implementação de testes;
+- Implementação de testes.
 
 Sugestões e dicas são muito bem vindas! Obrigado! 🤓 [Contato](mottaluizantonio@gmail.com)
 
