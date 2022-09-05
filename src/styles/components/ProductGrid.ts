@@ -1,6 +1,34 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  width: 100%;
+  font-weight: 700;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .button {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .button-desktop {
+    display: none;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .button-desktop {
+      display: block;
+    }
+    .button-mobile {
+      display: none;
+    }
+  }
+`;
+
+export const ProductBox = styled.div`
   width: 156px;
   height: 348px;
   margin: 0px 10px 16px;
