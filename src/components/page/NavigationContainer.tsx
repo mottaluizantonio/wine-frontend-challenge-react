@@ -3,7 +3,7 @@ import Link from 'next/link';
 import {
   Container,
   NavigationButtonsContainer
-} from '../styles/components/NavigationContainer';
+} from '../../styles/components/NavigationContainer';
 
 const NavigationContainer = ({ data, query }) => {
   const queryName = () => (query.name ? query.name : '');

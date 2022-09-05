@@ -9,11 +9,11 @@ import Link from 'next/link';
 import { useContext } from 'react';
 
 import BlackWine from '../../assets/blackWine.svg';
-import FilterPrice from '../../components/FilterPrice';
 
 import Header from '../../components/Header';
-import NavigationContainer from '../../components/NavigationContainer';
-import ProductsFound from '../../components/ProductsFound';
+import NavigationContainer from '../../components/page/NavigationContainer';
+import ProductsFound from '../../components/page/ProductsFound';
+import FilterPrice from '../../components/page/FilterPrice';
 import { Data } from '../../interfaces/products';
 import { CartContext } from '../../providers/cart';
 import Button from '../../styles/components/Button';

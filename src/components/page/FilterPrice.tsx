@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import SearchContainer from '../styles/components/FilterPrice';
+import SearchContainer from '../../styles/components/FilterPrice';
 
 const FilterPrice = ({ query }) => {
   const queryName = () => (query.name ? query.name : '');
