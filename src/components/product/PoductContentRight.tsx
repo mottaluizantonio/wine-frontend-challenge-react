@@ -14,7 +14,7 @@ import {
   PricesContainer,
   ProductHeader,
   RegionContainer
-} from '../../styles/components/PoductContentRight';
+} from '../../styles/components/product/PoductContentRight';
 import formatCurrency from '../../utils/formatCurrency';
 
 const PoductContentRight = ({ findProduct }) => {

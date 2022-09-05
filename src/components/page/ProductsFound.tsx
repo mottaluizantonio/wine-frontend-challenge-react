@@ -1,7 +1,11 @@
-import { EmptyProducts, LineDiv } from '../../styles/components/ProductsFound';
+import {
+  EmptyProducts,
+  LineDiv,
+  ProductsFoundContainer
+} from '../../styles/components/page/ProductsFound';
 
 const ProductsFound = ({ data, query }) => (
-  <div>
+  <ProductsFoundContainer>
     {data.totalItems === 0 && (
       <EmptyProducts>
         <span>=(</span>
@@ -22,7 +26,7 @@ const ProductsFound = ({ data, query }) => (
         <LineDiv />
       </>
     )}
-  </div>
+  </ProductsFoundContainer>
 );
 
 export default ProductsFound;

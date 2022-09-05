@@ -1,8 +1,8 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
 
-import Header from '../components/Header';
-import Container from '../styles/pages/Cart';
+import Header from '../components/header/Header';
+import Container from '../styles/components/cart/Cart';
 import ProductsGridCart from '../components/cart/ProductsGridCart';
 import FooterCart from '../components/cart/FooterCart';
 

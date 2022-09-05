@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { CartContext } from '../../providers/cart';
 
 import { ItemCart } from '../../interfaces/products';
-import { PricePartner } from '../../styles/components/ProductBoxCart';
+import { PricePartner } from '../../styles/components/cart/ProductBoxCart';
 
 const PricePartnerCart = ({ productID }) => {
   const { cart } = useContext(CartContext);

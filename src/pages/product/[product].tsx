@@ -6,7 +6,7 @@ import {
 import { useRouter } from 'next/router';
 
 import Head from 'next/head';
-import Header from '../../components/Header';
+import Header from '../../components/header/Header';
 
 import Return from '../../assets/return.svg';
 
@@ -16,7 +16,7 @@ import {
   Content,
   ContentLeft,
   DivClickReturn
-} from '../../styles/pages/Product';
+} from '../../styles/components/product/Product';
 import { Data, Item } from '../../interfaces/products';
 import ProductFooterMobile from '../../components/product/ProductFooterMobile';
 import PoductContentRight from '../../components/product/PoductContentRight';

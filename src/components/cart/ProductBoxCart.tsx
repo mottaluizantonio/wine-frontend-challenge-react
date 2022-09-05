@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useContext } from 'react';
 
 import { CartContext } from '../../providers/cart';
-import { ProductBox } from '../../styles/components/ProductBoxCart';
+import { ProductBox } from '../../styles/components/cart/ProductBoxCart';
 import PricePartnerCart from './PricePartnerCart';
 
 const ProductBoxCart = ({ productID }) => {
