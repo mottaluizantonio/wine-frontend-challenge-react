@@ -71,7 +71,7 @@ export const ContainerLeft = styled.div`
     }
   }
 
-  @media only screen and (min-width: 940px) {
+  @media only screen and (min-width: 1080px) {
     ul {
       display: flex;
     }
