@@ -11,7 +11,7 @@ const ProductsGridCart = () => {
 
   return (
     <Container>
-      <Winebox />
+      {cart.length > 0 && <Winebox />}
       {cart.length === 0 && <EmptyCart />}
       {cart.map(product => (
         <ProductBoxCart productID={product.id} />
