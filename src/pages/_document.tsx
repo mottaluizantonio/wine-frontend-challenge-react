@@ -44,11 +44,14 @@ export default class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.gstatic.com" />
 
           <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700;900"
             rel="stylesheet"
           />
 
-          <link rel="ico" href="https://rocketseat.com.br/favicon.ico" />
+          <link
+            rel="icon"
+            href="https://img.wine.com.br/fenix/image/_big_bang/icons/favicon/favicon.ico"
+          />
 
           <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
