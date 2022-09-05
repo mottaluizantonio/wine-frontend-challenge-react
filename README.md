@@ -2,7 +2,7 @@
 
 Desafio de Frontend da empresa Wine, com objetivo de implementar um e-commerce para venda de vinhos, feito em ReactJS, utilizando NextJS e Styled-Components.
 
-> Aplicação rodando no [Vercel](https://firebasestorage.googleapis.com/v0/b/teste-upload-b324a.appspot.com/o/Captura%20de%20Tela%202021-11-01%20a%CC%80s%2014.44.04.png?alt=media&token=92acea99-9f2d-46b5-bced-4b384acf808f)
+> Aplicação rodando no [Vercel](https://wine-frontend-challenge-react-mottaluizantonio.vercel.app)
 
 
 💭 Features principais:
@@ -41,7 +41,7 @@ Alguns dos principais pontos que quero melhorar no projeto:
 - Implementar o react-tostify, para que seja avisado quando um produto for inserido no carrinho;
 - Implementação de testes.
 
-Sugestões e dicas são muito bem vindas! Obrigado! 🤓 [Contato](mottaluizantonio@gmail.com)
+Sugestões e dicas são muito bem vindas! Obrigado! 🤓 [mottaluizantonio@gmail.com](mottaluizantonio@gmail.com)
 
 ## 🔗 Uteis
 
