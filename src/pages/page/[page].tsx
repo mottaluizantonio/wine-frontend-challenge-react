@@ -9,25 +9,23 @@ import Link from 'next/link';
 import { useContext } from 'react';
 
 import BlackWine from '../../assets/blackWine.svg';
+import FilterPrice from '../../components/FilterPrice';
 
 import Header from '../../components/Header';
+import NavigationContainer from '../../components/NavigationContainer';
+import ProductsFound from '../../components/ProductsFound';
 import { Data } from '../../interfaces/products';
 import { CartContext } from '../../providers/cart';
 import Button from '../../styles/components/Button';
 import {
   Container,
   Content,
-  EmptyProducts,
-  LineDiv,
   MainContent,
-  NavigationButtonsContainer,
-  NavigationContainer,
   PriceOff,
   PricePartner,
   ProductBox,
   ProductsGrid,
-  SealContainer,
-  SearchContainer
+  SealContainer
 } from '../../styles/pages/Page';
 import formatCurrency from '../../utils/formatCurrency';
 
@@ -67,104 +65,9 @@ const Page: NextPage = ({
       <main>
         <Container>
           <Content>
-            <SearchContainer>
-              <h4>Refine sua busca</h4>
-              <p>Por preço</p>
-              <Link
-                href={`/page/1?price=0-40&name=${query.name ? query.name : ''}`}
-              >
-                <div className="container">
-                  <input
-                    type="checkbox"
-                    checked={query.price === '0-40'}
-                    readOnly
-                  />
-                  <span className="checkmark" />
-                  <span className="checkbox-text">Até R$40</span>
-                </div>
-              </Link>
-              <Link
-                href={`/page/1?price=40-60&name=${
-                  query.name ? query.name : ''
-                }`}
-              >
-                <div className="container">
-                  <input
-                    type="checkbox"
-                    checked={query.price === '40-60'}
-                    readOnly
-                  />
-                  <span className="checkmark" />
-                  <span className="checkbox-text">R$40 A R$60</span>
-                </div>
-              </Link>
-              <Link
-                href={`/page/1?price=100-200&name=${
-                  query.name ? query.name : ''
-                }`}
-              >
-                <div className="container">
-                  <input
-                    type="checkbox"
-                    checked={query.price === '100-200'}
-                    readOnly
-                  />
-                  <span className="checkmark" />
-                  <span className="checkbox-text">R$100 A R$200</span>
-                </div>
-              </Link>
-              <Link
-                href={`/page/1?price=200-500&name=${
-                  query.name ? query.name : ''
-                }`}
-              >
-                <div className="container">
-                  <input
-                    type="checkbox"
-                    checked={query.price === '200-500'}
-                    readOnly
-                  />
-                  <span className="checkmark" />
-                  <span className="checkbox-text">R$200 A R$500</span>
-                </div>
-              </Link>
-              <Link
-                href={`/page/1?price=500-500&name=${
-                  query.name ? query.name : ''
-                }`}
-              >
-                <div className="container">
-                  <input
-                    type="checkbox"
-                    checked={query.price === '500-500'}
-                    readOnly
-                  />
-                  <span className="checkmark" />
-                  <span className="checkbox-text">Acima de R$500</span>
-                </div>
-              </Link>
-            </SearchContainer>
+            <FilterPrice query={query} />
             <MainContent>
-              {data.totalItems === 0 && (
-                <EmptyProducts>
-                  <span>=(</span>
-                  <p>Desculpe, não encontramos nenhum produto</p>
-                </EmptyProducts>
-              )}
-
-              {data.totalItems > 0 && (
-                <>
-                  <div className="top-search">
-                    {query.name && (
-                      <p>
-                        Buscando &quot;<span>{query.name}</span>&quot;
-                      </p>
-                    )}
-                    <span>{data.totalItems}</span> produtos encontrados
-                  </div>
-                  <LineDiv />
-                </>
-              )}
+              <ProductsFound data={data} query={query} />
               <ProductsGrid>
                 {data.items.map(product => (
                   <div key={product.id}>
@@ -223,68 +126,7 @@ const Page: NextPage = ({
                   </div>
                 ))}
               </ProductsGrid>
-              <NavigationContainer>
-                <NavigationButtonsContainer>
-                  {data.page - 1 > 0 && (
-                    <>
-                      <Link
-                        href={`/page/${data.page - 1}${
-                          query.price
-                            ? `?price=${query.price}?name=${
-                                query.name ? query.name : ''
-                              }`
-                            : `?name=${query.name ? query.name : ''}`
-                        }`}
-                      >
-                        <p className="pointer">&lt;&lt; Anterior</p>
-                      </Link>
-                      {data.page > 2 && <p>...</p>}
-                      <Link
-                        href={`/page/${data.page - 1}${
-                          query.price
-                            ? `?price=${query.price}?name=${
-                                query.name ? query.name : ''
-                              }`
-                            : `?name=${query.name ? query.name : ''}`
-                        }`}
-                      >
-                        <div>{data.page - 1}</div>
-                      </Link>
-                    </>
-                  )}
-                  {data.totalItems > 0 && (
-                    <div className="current-page no-pointer">{data.page}</div>
-                  )}
-
-                  {data.page + 1 <= data.totalPages && (
-                    <>
-                      <Link
-                        href={`/page/${data.page + 1}${
-                          query.price
-                            ? `?price=${query.price}?name=${
-                                query.name ? query.name : ''
-                              }`
-                            : `?name=${query.name ? query.name : ''}`
-                        }`}
-                      >
-                        <div>{data.page + 1}</div>
-                      </Link>
-                      {data.page + 1 < data.totalPages && <p>...</p>}
-                      <Link
-                        href={`/page/${data.page + 1}${
-                          query.price
-                            ? `?price=${query.price}?name=${
-                                query.name ? query.name : ''
-                              }`
-                            : `?name=${query.name ? query.name : ''}`
-                        }`}
-                      >
-                        <p className="pointer last">Próximo &gt;&gt;</p>
-                      </Link>
-                    </>
-                  )}
-                </NavigationButtonsContainer>
-              </NavigationContainer>
+              <NavigationContainer data={data} query={query} />
             </MainContent>
           </Content>
         </Container>
