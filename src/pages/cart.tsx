@@ -14,9 +14,35 @@ import {
   ProductsGrid
 } from '../styles/pages/Cart';
 import Button from '../styles/components/Button';
+import { ItemCart } from '../interfaces/products';
 
 const Cart: NextPage = () => {
   const { cart, addToCart, removeFromCart } = useContext(CartContext);
+
+  const cartTotal = cart
+    .reduce(
+      (total, { priceNonMember, quantity }) =>
+        total + priceNonMember * quantity,
+      0
+    )
+    .toFixed(2);
+  const memberEco = (
+    cart.reduce(
+      (total, { priceNonMember, quantity }) =>
+        total + priceNonMember * quantity,
+      0
+    ) -
+    cart.reduce(
+      (total, { priceMember, quantity }) => total + priceMember * quantity,
+      0
+    )
+  ).toFixed(2);
+  const priceSplit = (product: ItemCart, value: number) =>
+    (product.priceNonMember * product.quantity)
+      .toFixed(2)
+      .toString()
+      .split('.')[value];
+  const cartQuantity = cart.reduce((acc, { quantity }) => acc + quantity, 0);
 
   return (
     <div>
@@ -32,10 +58,7 @@ const Cart: NextPage = () => {
             <p>
               <span>
                 Winebox(
-                {cart.length > 0
-                  ? cart.reduce((acc, { quantity }) => acc + quantity, 0)
-                  : '0'}
-                )
+                {cart.length > 0 ? cartQuantity : '0'})
               </span>
             </p>
             {cart.length === 0 && (
@@ -83,20 +106,8 @@ const Cart: NextPage = () => {
                     <PricePartner>
                       <p>
                         R$
-                        <span>
-                          {
-                            (product.priceNonMember * product.quantity)
-                              .toString()
-                              .split('.')[0]
-                          }
-                        </span>
-                        ,
-                        {
-                          (product.priceNonMember * product.quantity)
-                            .toFixed(2)
-                            .toString()
-                            .split('.')[1]
-                        }
+                        <span>{priceSplit(product, 0)}</span>,
+                        {priceSplit(product, 1)}
                       </p>
                     </PricePartner>
                   </div>
@@ -109,32 +120,9 @@ const Cart: NextPage = () => {
             <div>
               <div>
                 <p>Total:</p>
-                <p>
-                  R${' '}
-                  {cart
-                    .reduce(
-                      (total, { priceNonMember, quantity }) =>
-                        total + priceNonMember * quantity,
-                      0
-                    )
-                    .toFixed(2)}
-                </p>
+                <p>R$ {cartTotal}</p>
               </div>
-              <p>
-                Torne-se membro e economize R${' '}
-                {(
-                  cart.reduce(
-                    (total, { priceNonMember, quantity }) =>
-                      total + priceNonMember * quantity,
-                    0
-                  ) -
-                  cart.reduce(
-                    (total, { priceMember, quantity }) =>
-                      total + priceMember * quantity,
-                    0
-                  )
-                ).toFixed(2)}
-              </p>
+              <p>Torne-se membro e economize R$ {memberEco}</p>
               <Button width="300px" height="45px">
                 finalizar pedido
               </Button>
