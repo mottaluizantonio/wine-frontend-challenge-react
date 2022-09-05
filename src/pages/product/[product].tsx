@@ -58,6 +58,9 @@ const Product: NextPage = ({
   const { addToCart } = useContext(CartContext);
   const [addQuantity, setAddQuantity] = useState<number>(1);
 
+  const priceSplit = (value: number) =>
+    findProduct.priceMember.toFixed(2).toString().split('.')[value];
+
   return (
     <div>
       <Head>
@@ -106,18 +109,8 @@ const Product: NextPage = ({
               <PricesContainer>
                 <p>
                   R$&nbsp;
-                  <span className="price-big">
-                    {findProduct.priceMember.toString().split('.')[0]}
-                  </span>
-                  <span className="price-medium">
-                    ,
-                    {
-                      findProduct.priceMember
-                        .toFixed(2)
-                        .toString()
-                        .split('.')[1]
-                    }
-                  </span>
+                  <span className="price-big">{priceSplit(0)}</span>
+                  <span className="price-medium">,{priceSplit(1)}</span>
                 </p>
                 <span>
                   NÃO SÓCIO {formatCurrency(findProduct.priceNonMember)}/UN.

@@ -8,7 +8,7 @@ import {
 const NavigationContainer = ({ data, query }) => {
   const queryName = () => (query.name ? query.name : '');
 
-  const pageChange = up => {
+  const pageChange = (up: boolean) => {
     if (up) {
       return `/page/${data.page + 1}${
         query.price
