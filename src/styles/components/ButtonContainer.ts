@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { ButtonProps } from '../../interfaces/button';
 
-const Button = styled.button<ButtonProps>`
+const ButtonContainer = styled.button<ButtonProps>`
   color: ${props => props.theme.colors.white};
   background: ${props => props.theme.colors.greenButton};
   font-weight: 700;
@@ -20,4 +20,4 @@ const Button = styled.button<ButtonProps>`
   }
 `;
 
-export default Button;
+export default ButtonContainer;

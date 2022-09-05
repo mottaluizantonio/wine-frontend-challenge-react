@@ -10,9 +10,9 @@ import {
 } from '../../styles/components/page/ProductGrid';
 import formatCurrency from '../../utils/formatCurrency';
 import BlackWine from '../../assets/blackWine.svg';
-import Button from '../../styles/components/Button';
 import { CartContext } from '../../providers/cart';
 import { Item } from '../../interfaces/products';
+import Button from '../Button';
 
 const ProductGrid = ({ data }) => {
   const { addToCart } = useContext(CartContext);

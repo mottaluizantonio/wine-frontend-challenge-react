@@ -1,4 +1,4 @@
-import Button from '../../styles/components/Button';
+import Button from '../Button';
 import {
   FooterMobile,
   PriceDivMobile,
