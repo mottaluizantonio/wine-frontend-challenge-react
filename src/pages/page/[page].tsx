@@ -12,6 +12,7 @@ import BlackWine from '../../assets/blackWine.svg';
 import FilterPrice from '../../components/FilterPrice';
 
 import Header from '../../components/Header';
+import NavigationContainer from '../../components/NavigationContainer';
 import { Data } from '../../interfaces/products';
 import { CartContext } from '../../providers/cart';
 import Button from '../../styles/components/Button';
@@ -21,8 +22,6 @@ import {
   EmptyProducts,
   LineDiv,
   MainContent,
-  NavigationButtonsContainer,
-  NavigationContainer,
   PriceOff,
   PricePartner,
   ProductBox,
@@ -147,68 +146,7 @@ const Page: NextPage = ({
                   </div>
                 ))}
               </ProductsGrid>
-              <NavigationContainer>
-                <NavigationButtonsContainer>
-                  {data.page - 1 > 0 && (
-                    <>
-                      <Link
-                        href={`/page/${data.page - 1}${
-                          query.price
-                            ? `?price=${query.price}?name=${
-                                query.name ? query.name : ''
-                              }`
-                            : `?name=${query.name ? query.name : ''}`
-                        }`}
-                      >
-                        <p className="pointer">&lt;&lt; Anterior</p>
-                      </Link>
-                      {data.page > 2 && <p>...</p>}
-                      <Link
-                        href={`/page/${data.page - 1}${
-                          query.price
-                            ? `?price=${query.price}?name=${
-                                query.name ? query.name : ''
-                              }`
-                            : `?name=${query.name ? query.name : ''}`
-                        }`}
-                      >
-                        <div>{data.page - 1}</div>
-                      </Link>
-                    </>
-                  )}
-                  {data.totalItems > 0 && (
-                    <div className="current-page no-pointer">{data.page}</div>
-                  )}
-
-                  {data.page + 1 <= data.totalPages && (
-                    <>
-                      <Link
-                        href={`/page/${data.page + 1}${
-                          query.price
-                            ? `?price=${query.price}?name=${
-                                query.name ? query.name : ''
-                              }`
-                            : `?name=${query.name ? query.name : ''}`
-                        }`}
-                      >
-                        <div>{data.page + 1}</div>
-                      </Link>
-                      {data.page + 1 < data.totalPages && <p>...</p>}
-                      <Link
-                        href={`/page/${data.page + 1}${
-                          query.price
-                            ? `?price=${query.price}?name=${
-                                query.name ? query.name : ''
-                              }`
-                            : `?name=${query.name ? query.name : ''}`
-                        }`}
-                      >
-                        <p className="pointer last">Próximo &gt;&gt;</p>
-                      </Link>
-                    </>
-                  )}
-                </NavigationButtonsContainer>
-              </NavigationContainer>
+              <NavigationContainer data={data} query={query} />
             </MainContent>
           </Content>
         </Container>
