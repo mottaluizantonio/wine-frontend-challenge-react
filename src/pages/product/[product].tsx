@@ -24,18 +24,15 @@ import {
   ContentRight,
   DescriptionContainer,
   DivClickReturn,
-  FooterMobile,
   InfoContainer,
-  PriceDivMobile,
-  PriceOffContainer,
   PricesContainer,
   ProductHeader,
   RegionContainer
 } from '../../styles/pages/Product';
-import Button from '../../styles/components/Button';
 import formatCurrency from '../../utils/formatCurrency';
 import { Data, Item } from '../../interfaces/products';
 import { CartContext } from '../../providers/cart';
+import ProductFooterMobile from '../../components/product/ProductFooterMobile';
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const res = await fetch(`https://wine-back-test.herokuapp.com/products?`);
@@ -152,21 +149,7 @@ const Product: NextPage = ({
               </ButtonContainer>
             </ContentRight>
           </Content>
-          <FooterMobile>
-            <div>
-              <PriceOffContainer>{findProduct.discount}% off</PriceOffContainer>
-              <PriceDivMobile>
-                <div>{formatCurrency(findProduct.price)}</div>
-                <div>{formatCurrency(findProduct.priceMember)}</div>
-                <div>
-                  preço não-sócio {formatCurrency(findProduct.priceNonMember)}
-                </div>
-              </PriceDivMobile>
-            </div>
-            <div>
-              <Button>adicionar</Button>
-            </div>
-          </FooterMobile>
+          <ProductFooterMobile findProduct={findProduct} />
         </Container>
       </main>
     </div>

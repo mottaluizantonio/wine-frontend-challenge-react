@@ -6,11 +6,11 @@ import {
   PriceOff,
   PricePartner,
   SealContainer
-} from '../styles/components/ProductBox';
-import formatCurrency from '../utils/formatCurrency';
-import BlackWine from '../assets/blackWine.svg';
-import Button from '../styles/components/Button';
-import { CartContext } from '../providers/cart';
+} from '../../styles/components/ProductBox';
+import formatCurrency from '../../utils/formatCurrency';
+import BlackWine from '../../assets/blackWine.svg';
+import Button from '../../styles/components/Button';
+import { CartContext } from '../../providers/cart';
 
 const ProductBox = ({ product }) => {
   const { addToCart } = useContext(CartContext);

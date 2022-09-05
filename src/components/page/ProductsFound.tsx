@@ -1,4 +1,4 @@
-import { EmptyProducts, LineDiv } from '../styles/components/ProductsFound';
+import { EmptyProducts, LineDiv } from '../../styles/components/ProductsFound';
 
 const ProductsFound = ({ data, query }) => (
   <div>
