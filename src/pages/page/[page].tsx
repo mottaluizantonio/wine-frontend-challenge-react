@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { useContext } from 'react';
 
 import BlackWine from '../../assets/blackWine.svg';
+import FilterPrice from '../../components/FilterPrice';
 
 import Header from '../../components/Header';
 import { Data } from '../../interfaces/products';
@@ -26,8 +27,7 @@ import {
   PricePartner,
   ProductBox,
   ProductsGrid,
-  SealContainer,
-  SearchContainer
+  SealContainer
 } from '../../styles/pages/Page';
 import formatCurrency from '../../utils/formatCurrency';
 
@@ -67,83 +67,7 @@ const Page: NextPage = ({
       <main>
         <Container>
           <Content>
-            <SearchContainer>
-              <h4>Refine sua busca</h4>
-              <p>Por preço</p>
-              <Link
-                href={`/page/1?price=0-40&name=${query.name ? query.name : ''}`}
-              >
-                <div className="container">
-                  <input
-                    type="checkbox"
-                    checked={query.price === '0-40'}
-                    readOnly
-                  />
-                  <span className="checkmark" />
-                  <span className="checkbox-text">Até R$40</span>
-                </div>
-              </Link>
-              <Link
-                href={`/page/1?price=40-60&name=${
-                  query.name ? query.name : ''
-                }`}
-              >
-                <div className="container">
-                  <input
-                    type="checkbox"
-                    checked={query.price === '40-60'}
-                    readOnly
-                  />
-                  <span className="checkmark" />
-                  <span className="checkbox-text">R$40 A R$60</span>
-                </div>
-              </Link>
-              <Link
-                href={`/page/1?price=100-200&name=${
-                  query.name ? query.name : ''
-                }`}
-              >
-                <div className="container">
-                  <input
-                    type="checkbox"
-                    checked={query.price === '100-200'}
-                    readOnly
-                  />
-                  <span className="checkmark" />
-                  <span className="checkbox-text">R$100 A R$200</span>
-                </div>
-              </Link>
-              <Link
-                href={`/page/1?price=200-500&name=${
-                  query.name ? query.name : ''
-                }`}
-              >
-                <div className="container">
-                  <input
-                    type="checkbox"
-                    checked={query.price === '200-500'}
-                    readOnly
-                  />
-                  <span className="checkmark" />
-                  <span className="checkbox-text">R$200 A R$500</span>
-                </div>
-              </Link>
-              <Link
-                href={`/page/1?price=500-500&name=${
-                  query.name ? query.name : ''
-                }`}
-              >
-                <div className="container">
-                  <input
-                    type="checkbox"
-                    checked={query.price === '500-500'}
-                    readOnly
-                  />
-                  <span className="checkmark" />
-                  <span className="checkbox-text">Acima de R$500</span>
-                </div>
-              </Link>
-            </SearchContainer>
+            <FilterPrice query={query} />
             <MainContent>
               {data.totalItems === 0 && (
                 <EmptyProducts>
