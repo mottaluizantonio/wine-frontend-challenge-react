@@ -13,14 +13,13 @@ import FilterPrice from '../../components/FilterPrice';
 
 import Header from '../../components/Header';
 import NavigationContainer from '../../components/NavigationContainer';
+import ProductsFound from '../../components/ProductsFound';
 import { Data } from '../../interfaces/products';
 import { CartContext } from '../../providers/cart';
 import Button from '../../styles/components/Button';
 import {
   Container,
   Content,
-  EmptyProducts,
-  LineDiv,
   MainContent,
   PriceOff,
   PricePartner,
@@ -68,26 +67,7 @@ const Page: NextPage = ({
           <Content>
             <FilterPrice query={query} />
             <MainContent>
-              {data.totalItems === 0 && (
-                <EmptyProducts>
-                  <span>=(</span>
-                  <p>Desculpe, não encontramos nenhum produto</p>
-                </EmptyProducts>
-              )}
-
-              {data.totalItems > 0 && (
-                <>
-                  <div className="top-search">
-                    {query.name && (
-                      <p>
-                        Buscando &quot;<span>{query.name}</span>&quot;
-                      </p>
-                    )}
-                    <span>{data.totalItems}</span> produtos encontrados
-                  </div>
-                  <LineDiv />
-                </>
-              )}
+              <ProductsFound data={data} query={query} />
               <ProductsGrid>
                 {data.items.map(product => (
                   <div key={product.id}>
