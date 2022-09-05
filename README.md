@@ -40,6 +40,8 @@ Alguns pontos que queria melhorar no projeto, caso tivesse mais tempo:
 - Implementar o react-tostify, para que seja avisado quando um produto for inserido no carrinho;
 - Implementação de testes;
 
+## Uteis
+
 > [Figma guide](https://www.figma.com/file/gByBxI9GBHKUjXRtO2fFh2/28%2F10-%F0%9F%96%A5-%F0%9F%93%B1---Wine-Test---WEB-%26-APP?node-id=680%3A6449)
 
 
