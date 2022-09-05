@@ -230,8 +230,10 @@ const Page: NextPage = ({
                       <Link
                         href={`/page/${data.page - 1}${
                           query.price
-                            ? `?price=${query.price}?name=${query.name}`
-                            : `?name=${query.name}`
+                            ? `?price=${query.price}?name=${
+                                query.name ? query.name : ''
+                              }`
+                            : `?name=${query.name ? query.name : ''}`
                         }`}
                       >
                         <p className="pointer">&lt;&lt; Anterior</p>
@@ -240,8 +242,10 @@ const Page: NextPage = ({
                       <Link
                         href={`/page/${data.page - 1}${
                           query.price
-                            ? `?price=${query.price}?name=${query.name}`
-                            : `?name=${query.name}`
+                            ? `?price=${query.price}?name=${
+                                query.name ? query.name : ''
+                              }`
+                            : `?name=${query.name ? query.name : ''}`
                         }`}
                       >
                         <div>{data.page - 1}</div>
@@ -257,8 +261,10 @@ const Page: NextPage = ({
                       <Link
                         href={`/page/${data.page + 1}${
                           query.price
-                            ? `?price=${query.price}?name=${query.name}`
-                            : `?name=${query.name}`
+                            ? `?price=${query.price}?name=${
+                                query.name ? query.name : ''
+                              }`
+                            : `?name=${query.name ? query.name : ''}`
                         }`}
                       >
                         <div>{data.page + 1}</div>
@@ -267,8 +273,10 @@ const Page: NextPage = ({
                       <Link
                         href={`/page/${data.page + 1}${
                           query.price
-                            ? `?price=${query.price}?name=${query.name}`
-                            : `?name=${query.name}`
+                            ? `?price=${query.price}?name=${
+                                query.name ? query.name : ''
+                              }`
+                            : `?name=${query.name ? query.name : ''}`
                         }`}
                       >
                         <p className="pointer last">Próximo &gt;&gt;</p>
