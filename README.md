@@ -32,7 +32,7 @@ Algumas das principais tecnologias utilizadas:
 
 ## 🧠 Pontos de Melhoria
 
-Alguns pontos que queria melhorar no projeto, caso tivesse mais tempo:
+Alguns pontos dos principais pontos que quero melhorar no projeto:
 
 - Estudar e implementar o SWR. Vi que seria a maneira ideal para fazer a requisição da API e utilizar o cache do Next JS;
 - Com o item acima, fazer um Provider para os dados vindos da requisição, tornando de fácil acesso por toda a aplicação e evitando "prop drilling";
