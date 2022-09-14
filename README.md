@@ -1,6 +1,6 @@
 # 🍷 Desafio Wine Frontend Challenge - NextJS
 
-Desafio de Frontend da empresa Wine, com objetivo de implementar um e-commerce para venda de vinhos, feito em ReactJS, utilizando NextJS e Styled-Components.
+Desafio Frontend da empresa Wine, com objetivo de implementar um e-commerce para venda de vinhos, feito em ReactJS, utilizando NextJS e Styled-Components.
 
 > Aplicação rodando no [Vercel](https://wine-frontend-challenge-react-mottaluizantonio.vercel.app)
 
@@ -16,7 +16,7 @@ Desafio de Frontend da empresa Wine, com objetivo de implementar um e-commerce p
 
 Como instalar esse projeto:
 
-- Faço um clone desse repositório;
+- Faça um clone deste repositório;
 - Na pasta raiz do projeto, rode o comando "yarn" no terminal para instalar os pacotes de dependencias;
 - Na pasta raiz do projeto, rode o comando "yarn dev" no terminal para rodar o projeto;
 - No seu navegador, abra o link indicado no terminal.
