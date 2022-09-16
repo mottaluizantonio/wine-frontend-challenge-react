@@ -20,7 +20,7 @@ const ProductGrid = ({ data }) => {
   return (
     <Container>
       {data.items.map((product: Item) => (
-        <div key={product.id}>
+        <div key={product.id} data-testid={product.id}>
           <Link href={`/product/${product.id}`}>
             <ProductBox>
               <SealContainer>

@@ -1,7 +1,9 @@
 import ButtonContainer from '../styles/components/ButtonContainer';
 
 const Button = ({ children, ...rest }) => (
-  <ButtonContainer {...rest}>{children}</ButtonContainer>
+  <ButtonContainer data-testid="button-add-product" {...rest}>
+    {children}
+  </ButtonContainer>
 );
 
 export default Button;
