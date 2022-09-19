@@ -44,7 +44,8 @@ Alguns dos principais pontos que quero melhorar no projeto:
 - Ainda com o primeiro item, implementar o carregamento de mais produtos quando em mobile;
 - Refatorar alguns componentes em componentes menores;
 - Implementar o react-tostify, para que seja avisado quando um produto for inserido no carrinho;
-- Implementação de testes. Refatorar os testes e2e para quem os elementos sejam selecionados pelo atributo "data-cy".
+- Implementação de testes. Refatorar os testes e2e para quem os elementos sejam selecionados pelo atributo "data-cy";
+- Landing page.
 
 Sugestões e dicas são muito bem vindas! Obrigado! 🤓 [mottaluizantonio@gmail.com](mottaluizantonio@gmail.com)
 
