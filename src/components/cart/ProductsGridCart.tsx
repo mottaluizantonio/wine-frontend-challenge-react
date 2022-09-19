@@ -14,7 +14,7 @@ const ProductsGridCart = () => {
       {cart.length > 0 && <Winebox />}
       {cart.length === 0 && <EmptyCart />}
       {cart.map(product => (
-        <ProductBoxCart productID={product.id} />
+        <ProductBoxCart key={product.id} productID={product.id} />
       ))}
     </Container>
   );

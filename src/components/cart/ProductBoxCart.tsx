@@ -11,7 +11,7 @@ const ProductBoxCart = ({ productID }) => {
   const product = cart.find(item => item.id === productID);
 
   return (
-    <div key={product.id}>
+    <div>
       <ProductBox>
         <Link href={`/product/${product.id}`}>
           <img src={product.image} alt={product.name} />
