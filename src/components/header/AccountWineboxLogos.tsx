@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import Account from '../../assets/account.svg';
-import Winebox from '../../assets/wineBox.svg';
+import Winebox from '../../assets/wineBoxCart.svg';
 
 const AccountWineboxLogos = () => (
   <>

@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react';
 import Link from 'next/link';
 
-import Search from '../assets/search.svg';
-import Search2 from '../assets/search2.svg';
+import Search from '../../assets/search.svg';
+import Search2 from '../../assets/search2.svg';
 
 const SearchContainer = () => {
   const dropDownRef = useRef(null);

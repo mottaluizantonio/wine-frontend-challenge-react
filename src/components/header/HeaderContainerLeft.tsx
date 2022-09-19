@@ -9,7 +9,7 @@ const HeaderContainerLeft = () => (
     <HambMenu />
     <Link href="/page/1">
       <div>
-        <Winelogo />
+        <Winelogo data-cy="winelogo" />
       </div>
     </Link>
     <ul>
