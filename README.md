@@ -12,6 +12,11 @@ Desafio Frontend da empresa Wine, com objetivo de implementar um e-commerce para
 - [ ] Adicionar e remover produtos do carrinho
 - [ ] Local Storage para gerenciar o carrinho
 
+💡 Updates:
+
+19 set 2022:
+- [ ] Testes e2e
+
 ## 📋 Instruções
 
 Como instalar esse projeto:
