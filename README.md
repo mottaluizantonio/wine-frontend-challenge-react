@@ -45,7 +45,12 @@ Alguns dos principais pontos que quero melhorar no projeto:
 - Refatorar alguns componentes em componentes menores;
 - Implementar o react-tostify, para que seja avisado quando um produto for inserido no carrinho;
 - Implementação de testes. Refatorar os testes e2e para quem os elementos sejam selecionados pelo atributo "data-cy";
-- Landing page.
+- Landing page;
+- Apertar "enter" para concluir a busca e fechar a barra da mesma;
+- Mudar a lógica dos botões "Anterior" e "Próxima" para que mude de segmento(3 em 3 páginas) e não de um em um, como já faz a numeração, para tornar a navegação mais ágil e fluida;
+- Na página do produto, feratorar o "ContainerRight", dividindo em componentes menores e com responsabilidade única;
+- Aprimorar a maneira como a responsividade trablha, quando o tamanho da página é alterado.
+
 
 Sugestões e dicas são muito bem vindas! Obrigado! 🤓 [mottaluizantonio@gmail.com](mottaluizantonio@gmail.com)
 
