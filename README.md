@@ -14,7 +14,7 @@ Desafio Frontend da empresa Wine, com objetivo de implementar um e-commerce para
 
 💡 Updates:
 
-19 set 2022:
+18 set 2022:
 - [ ] Testes e2e
 
 ## 📋 Instruções
