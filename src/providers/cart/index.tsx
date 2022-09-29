@@ -13,7 +13,7 @@ export const CartContext = createContext<CartContextInterface>(
 );
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState<ItemCart[]>([] as ItemCart[]);
+  const [cart, setCart] = useState<ItemCart[]>([]);
 
   useEffect(() => {
     const data = localStorage.getItem('cartwinelam');
