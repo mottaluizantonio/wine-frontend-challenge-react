@@ -1,6 +1,10 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useState, ReactNode } from 'react';
 
 import { Item, ItemCart } from '../../interfaces/products';
+
+interface ListProviderPros {
+  children: ReactNode;
+}
 
 interface CartContextInterface {
   cart: ItemCart[];
@@ -12,7 +16,7 @@ export const CartContext = createContext<CartContextInterface>(
   {} as CartContextInterface
 );
 
-export const CartProvider = ({ children }) => {
+export const CartProvider = ({ children }: ListProviderPros) => {
   const [cart, setCart] = useState<ItemCart[]>([]);
 
   useEffect(() => {
